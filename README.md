@@ -1,2 +1,2 @@
 # catbot
-A chat bot for Discord of many talents.
+A chat bot of many talents.
