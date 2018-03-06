@@ -14,6 +14,6 @@ client.on('message', message => {
   for (let talent in talents) {
     talent.onMessage(message)
   }
-))
+})
 
 client.login(id.login)
