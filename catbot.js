@@ -4,7 +4,7 @@ const client = new Discord.Client()
 const fs = require('fs')
 const id = require('./mem/id')
 
-const talents = require('./talent').talents
+const talents = require('./talents')
 
 client.on('ready', () => {
   console.log('Cat bot is ready!')
