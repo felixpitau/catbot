@@ -1,4 +1,5 @@
 import id from './mem/id'
+import Calculate from './talents/calculate'
 
 export default class Talent {
   constructor (name) {
@@ -23,5 +24,5 @@ export default class Talent {
 }
 
 export let talents = [
-  new (import './talents/calculate')('calculate'),
+  new Calculate('calculate'),
 ]
