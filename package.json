@@ -1,0 +1,23 @@
+{
+  "name": "catbot",
+  "version": "0.1.0",
+  "description": "A chat bot with many talents.",
+  "main": "catbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixpitau/catbot.git"
+  },
+  "author": "felixpitau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felixpitau/catbot/issues"
+  },
+  "homepage": "https://github.com/felixpitau/catbot#readme",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "mathjs": "^3.19.0"
+  }
+}
