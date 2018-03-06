@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# node package lock
+package-lock.json
+
+# cat bot's private memory folder
+mem
+
+# login key
+login
