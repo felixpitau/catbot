@@ -1,7 +1,7 @@
 require("babel-register")
 const Discord = require('discord.js')
 const fs = require('fs')
-const id = require('./mem/id')
+const id = require('./mem/id.json')
 
 const talents = require('./talents')
 
