@@ -37,8 +37,6 @@ export default class Expressions extends Talent {
     this.react(m, /jubba jubba/gi, ['no, just you', 'just you'])
     this.react(m, /(i want|gimmi(e)?) (dat|that) (beef|meat|bease|beas)ball!/gi, '<:nobadcat:264224193900445697> no! You can\'t have it!')
     this.react(m, /(\*|\\\*)gives( cat[ -]bot| the cat)?( a)? treat( to (cat[ -]bot|the cat))?(\*|\\\*)/gi, Expressions.meow() + ' \\*eats up the treat\\*')
-    this.react(m, /can i have something to eat?/gi, ':shell: No~')
-    this.react(m, /what do we do now?/gi, ':shell: Nothing~')
     this.react(m, /(\*|\\\*)flips? (a|the) coin(\*|\\\*)/gi, ['`you flip a coin. It is HEADS`', '`you flip a coin. It is TAILS`'])
     this.react(m, /(\*|\\\*)pets (the cat|cat bot|good boy|good kitty|very good kitty)(\*|\\\*)/gi, ['Pur', 'Purr', 'Purrr', 'Purrrr~', 'Purrrrr', 'Purrrrrr', 'Purrrrr~!', 'Purrurururr~', 'Purrororor...', 'Purwowa', 'Squek'])
     this.react(m, /(🔪|🗡)/gi, ['<:knifecat:262081040292642818>', '<:suffer:262079211290886144>'])

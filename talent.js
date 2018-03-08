@@ -44,9 +44,9 @@ export default class Talent {
 
   say (message, text) {
     if (text instanceof String) {
-      message.channel.send(output)
+      message.channel.send(text)
     } else if (text instanceof Array) {
-      message.channel.send(output[Math.floor(Math.random() * output.length)])
+      message.channel.send(text[Math.floor(Math.random() * text.length)])
     }
   }
 
