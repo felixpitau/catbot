@@ -10,11 +10,11 @@ export default class Talent {
   }
 
   isInPrivate (message) {
-    return (typeof message.server === 'undefined')
+    return (message.channel.type === 'dm')
   }
 
   isInPublic (message) {
-    return (typeof message.server !== 'undefined')
+    return (message.channel.type === 'text')
   }
 
   isIn (message, channel) {
@@ -43,7 +43,7 @@ export default class Talent {
   }
 
   say (message, text) {
-    if (text instanceof String) {
+    if (typeof text === 'string') {
       message.channel.send(text)
     } else if (text instanceof Array) {
       message.channel.send(text[Math.floor(Math.random() * text.length)])
