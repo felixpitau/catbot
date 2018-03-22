@@ -17,4 +17,6 @@ client.on('message', message => {
   }
 })
 
+module.exports.client = client
+
 client.login(id.login)
