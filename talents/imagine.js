@@ -1,0 +1,53 @@
+import Talent from '../talent'
+import prompts from '../data/imagine.json'
+import { client } from '../catbot'
+
+default export class Imagine extends Talent {
+
+  turn () {
+    let g = Imagine.game
+    if (g.inGame) {
+      // TODO: continue here
+    }
+  }
+
+  onMessage (message) {
+    let m = message
+    this.react(m, /^\imagineif/gi, () => {
+      if (Imagine.game === null) {
+        Imagine.game = {
+          rolled: false,
+          turnCount: 0,
+          inGame: false,
+          players: [],
+          subjects: []
+        }
+      }
+      let g = Imagine.game
+      this.react(m, /^imagineif$/gi, 'use: `imagineif (status|roll|choose|join|start|end)`')
+      this.react(m, /^imagineif status/gi, () => {
+        if (g.inGame) {
+          this.say(m, 'A game is in progress and it is ' + client.fetchUser(g.turn).username + '\'s turn!')
+        } else {
+          this.say(m, 'A game is not currently in progress')
+        }
+      })
+      this.react(m, /^imagineif roll$/gi, () => {
+        if (g.inGame) {
+          if (this.turn() === m.author) {
+            if (g.rolled === false) {
+              this.say(m, 'Rolling!')
+              g.rolled = true
+            } else {
+              this.say(m, 'You already rolled! You must now choose!')
+            }
+          } else {
+            this.say(m, 'It is not your turn, it is ' + client.getchUser(g.turn).username + '\'s turn!')
+          }
+        } else {
+          this.say(m, 'There is no game to roll for!')
+        }
+      })
+    })
+  }
+}
