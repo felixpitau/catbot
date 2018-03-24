@@ -7,6 +7,9 @@ default export class Imagine extends Talent {
   turn () {
     let g = Imagine.game
     if (g.inGame) {
+      for (let player in g.players) {
+        
+      }
       // TODO: continue here
     }
   }
@@ -25,7 +28,7 @@ default export class Imagine extends Talent {
       }
       let g = Imagine.game
       this.react(m, /^imagineif$/gi, 'use: `imagineif (status|roll|choose|join|start|end)`')
-      this.react(m, /^imagineif status/gi, () => {
+      this.react(m, /^imagineif status$/gi, () => {
         if (g.inGame) {
           this.say(m, 'A game is in progress and it is ' + client.fetchUser(g.turn).username + '\'s turn!')
         } else {
@@ -38,6 +41,12 @@ default export class Imagine extends Talent {
             if (g.rolled === false) {
               this.say(m, 'Rolling!')
               g.rolled = true
+              let roll = () => {return g.subjects[Math.floor(Math.random() * g.subjects.length)]}
+              let rollOne = roll()
+              let rollTwo = roll()
+              until (rollOne !== rollTwo || g.subjects.length < 2) {
+                rollTwo = roll()
+              }
             } else {
               this.say(m, 'You already rolled! You must now choose!')
             }
