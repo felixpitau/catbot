@@ -8,7 +8,9 @@ default export class Imagine extends Talent {
     let g = Imagine.game
     if (g.inGame) {
       for (let player in g.players) {
-        
+        if (player.turn) {
+          
+        }
       }
       // TODO: continue here
     }
