@@ -9,10 +9,9 @@ default export class Imagine extends Talent {
     if (g.inGame) {
       for (let player in g.players) {
         if (player.turn) {
-          
+          return player.id
         }
       }
-      // TODO: continue here
     }
   }
 
@@ -59,6 +58,8 @@ default export class Imagine extends Talent {
           this.say(m, 'There is no game to roll for!')
         }
       })
+    })
+    this.react(m, /^imagineif choose/gi, () => {
     })
   }
 }
