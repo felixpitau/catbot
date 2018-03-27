@@ -60,6 +60,16 @@ default export class Imagine extends Talent {
       })
     })
     this.react(m, /^imagineif choose/gi, () => {
+      this.react(m, /^imagineif choose$/gi, 'use `imagineif choose (1..6)` to choose a person or a response')
+    })
+    this.react(m, /^imagineif join/gi, () => {
+      
+    })
+    this.react(m, /^imagineif start/gi, () => {
+      
+    })
+    this.react(m, /^imagineif end/gi, () => {
+      
     })
   }
 }
