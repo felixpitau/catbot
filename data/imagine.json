@@ -1,5 +1,12 @@
 [
   {
-    "prompt": "Imagine if {name}. what would {pronoun} do?"
+    "prompt": "Imagine if {name}. what would {pronoun} do?",
+    "choices": ["choice one", "choice two"],
+    "tags": ["sample"]
+  },
+  {
+    "prompt": "Imagine if {name}. what would {pronoun} do?",
+    "choices": ["choice one", "choice two"],
+    "tags": ["sample"]
   }
 ]
