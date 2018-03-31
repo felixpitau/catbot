@@ -31,11 +31,33 @@ default export class Imagine extends Talent {
   }
 
   join (m) {
-    
+    let exists = false
+    for (let player in g.players) {
+      if (player.id === m.author.id) {
+        exists = true
+      }
+    }
+    if (!exists) {
+      g.players.push({
+        id: m.author.id,
+        position: 0,
+        score: 0,
+        inGame: true,
+        choice: false,
+        turn: false
+      })
+    } else {
+      this.say(m, 'You have already joined!')
+    }
   }
 
   leave (m) {
-    
+    let g = Imagine.game
+    for (let player in g.players) {
+      if (player.id === m.author.id) {
+        player.inGame = false
+      }
+    }
   }
 
   subjectAdd (m, subject) {
@@ -92,31 +114,10 @@ default export class Imagine extends Talent {
       })
     })
     this.react(m, /^imagineif join/gi, () => {
-      let exists = false
-      for (let player in g.players) {
-        if (player.id === m.author.id) {
-          exists = true
-        }
-      }
-      if (!exists) {
-        g.players.push({
-          id: m.author.id,
-          position: 0,
-          score: 0,
-          inGame: true,
-          choice: false,
-          turn: false
-        })
-      } else {
-        this.say(m, 'You have already joined!')
-      }
+      this.join(m)
     })
     this.react(m, /^imagineif leave/gi, () => {
-      for (let player in g.players) {
-        if (player.id === m.author.id) {
-          player.inGame = false
-        }
-      }
+      this.leave(m)
     })
     this.react(m, /^imagineif subject/gi, () => {
       this.react(m, /^imagineif subject$/gi, 'use: `imagineif subject (add|remove)`')
