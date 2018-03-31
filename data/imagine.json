@@ -8,5 +8,230 @@
     "prompt": "Imagine if {name}. what would {pronoun} do?",
     "choices": ["choice one", "choice two"],
     "tags": ["sample"]
+  },
+  {
+    "Imagine if {name} witnessed a purse-snatching on the city street. What would {pronoun} do?",
+    ["Wrestle the purse-snatcher to the ground", "Ignore it and keep walking", "Attempt a citizen's arrest", "Offer counseling", "Scream hysterically", "Move to the country"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were going on a picnic. Which would {pronoun} consider essential?",
+    ["Sandwiches and coffee", "Champagne and caviar", "Laptop and cell phone", "Loud radio", "A bat and ball", "A good book"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could have a superpower. Which would {pronoun} choose?",
+    ["Ability to fly", "Superhuman strength", "Mind control", "Ability to talk to animals", "Shape-shifting", "X-ray vision"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could have just one pet. Which would it be?",
+    ["Goldfish", "House cat", "Boa constrictor", "Pot-bellied pig", "Shih Tzu", "Peeve"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} won an overseas trip. Which country would {pronoun} visit?",
+    [["Italy", "Tibet", "Iceland", "Kenya", "Tahiti", "Monte Carlo"],
+    ["Vanilla"]
+  },   
+  {
+    "Imagine if {name} could keep only one of the following. Which would {pronoun} choose?",
+    ["Television", "Books", "Computer", "Telephone", "Blow dryer", "Wine collection"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were awakened at night by a burglar. What would {pronoun} do?",
+    ["Go back to sleep and rely on the insurance", "Scream", "Wake {possess} partner and demand action", "Tackle the burglar to the ground", "Sneak out and phone the police", "Attempt to counsel the burglar"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} had made a million dollars. How would {pronoun} most like to have made it?",
+    ["Sporting prowess", "Brilliant invention", "Sheer hard work", "Class action lawsuit", "Winning the lottery", "Show business"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could be brilliant at one of the following. Which would {pronoun} choose?",
+    ["Golf", "Painting", "Gambling", "Video games", "Cooking", "Programming cell phone"],
+    ["Vanilla"]
+  },  
+  {
+    "Imagine if {name} were hosting a party. How would {pronoun} handle the food?",
+    ["Have it professionally catered", "Make everyone bring a dish", "Put out a single tray of cocktail wieners", "Spend 3 days preparing a 5 course meal", "Have pizza and Buffalo wings delivered", "Pretend to be sick at the last second and cancel the party"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could acquire one of the following natural abilities. Which would {pronoun} choose?",
+    ["Amazing hand-eye coordination", "The ability to contact the spirit world", "Photographic memory", "The ability to win friends and influence people", "Musical virtuosity", "Optimism"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could travel in a time machine. Which event would {pronoun} choose to witness?",
+    ["Super Bowl III", "Wright Brothers' first flight", "The first Thanksgiving", "{possess} own birth", "Next year's Kentucky Derby", "Woodstock"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could go on a dream vacation. Which would it be?",
+    ["Alaskan wilderness hike", "Cultural tour of Europe", "African safari", "Week at Disney World®", "Hawaiian Islands trip", "Relaxing and working at home"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} suffered a minor crisis. Which would upset {pronoun} most?",
+    ["Burning the roast", "Scratch on the car", "Computer virus", "TV breaking down", "Credit cards cancelled", "Stain on the lapel"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} suffered from a phobia. Which would it be?",
+    ["Ochlophobia (fear of crowds)", "Arachnophobia (fear of spiders)", "Triskaidekaphobia (fear of thirteen)", "Mysophobia (fear of dirt)", "Acrophobia (fear of heights)", "Nyctophobia (fear of darkness)"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} had to do one of the following. Which would {pronoun} fear the most?",
+    ["Bungee Jumping", "Addressing the U.N. General Assembly", "Catching a tarantula", "Asking a secret crush on a date", "Dining with the in-laws", "Becoming a parent"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could do only one of the following every morning. Which would {pronoun} choose?",
+    ["Go for a 5-mile run", "Sleep until 1:00 pm", "Drink coffee and read a newspaper", "Spend quality time with spouse", "Watch pre-game football shows", "Take a 30 minute how shower"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} awoke to find the house in flames. Which would {pronoun} save first?",
+    ["Insurance policy", "Favorite shoes", "Family photos", "Cash", "Self portrait", "Sports equipment"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were on a 10 hour car trip. Which would upset {pronoun} the most?",
+    ["Being stuck behind a little old lady traveling at 30 mph", "Running over a bunny rabbit", "Children fighting in the back seat", "A small scratch on the paint work", "Sound system breaking down", "Cell phone going out of range"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} found a piece of hair in their entrée. What would {pronoun} do?",
+    ["Remove the hair and keep eating", "Finish the meal, but refuse to pay for the entrée", "Storm out of the restaurant after giving the manager a tongue-lashing", "Simply set the meal aside and say {pronoun} {is/are} not hungry", "Throw up", "Ask for a replacement entrée"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were at a construction site. What would {pronoun} be doing?",
+    ["Barking out orders", "Taking a coffee break", "Doing something with a jackhammer", "Drawing up the plans", "Complaining about working conditions", "Whistling at passerby"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} accidentally backed over the neighbor's cat in the driveway. Which would {pronoun} do?",
+    ["Bury it and say nothing", "Confess", "Buy a replacement and pretend nothing happened", "Place it on the road and say nothing", "Blame the neighbor for inadequate cat control", "Run over it again to make sure it was dead"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} had to decide the best way to spend New Year's Eve. Which would {pronoun} choose?",
+    ["A quiet celebration with the family", "In the middle of the crowd at Times Square", "Attend the ballet and then a cocktail party", "In deep meditation pondering the upcoming year", "48 straight hours of partying", "Exactly the same as every other day"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were honked at by an impatient driver. How would {pronoun} react?",
+    ["Get out of the car and threaten the driver", "Ignore it and turn up the radio", "Honk 'em right back", "Give a genuine apologetic wave", "Record the license plate and call the police", "Wink and lick the window"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} stepped onto a bus and the only other passenger was {possess} favorite TV star. What would {pronoun} do?",
+    ["Ignore the star", "Politely say \"Hello\" but respect their privacy", "Tell the star about a great creative idea", "Offer a critique of the star's work", "Nervously ask for an autograph", "Drop their jaw and scream, \"I love you!\"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} bought a newspaper. Which would {pronoun} read first?",
+    ["Personals", "Financial section", "Sports", "Comics", "Obituaries", "Want ads"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could enjoy one of life's little luxuries every day. Which would {pronoun} choose?",
+    ["Long message", "Breakfast in bed", "Fine scotch and a cigar", "A nap", "Bubble bath", "A maid"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} had to baby-sit a relative's 5 year old kid. What would {pronoun} do?",
+    ["Take the kid to the zoo", "Bake a tray of cookies", "Eat junk food together and watch TV", "Put the kid to work doing laundry and dishes", "Teach the kid how to rebuild engines", "Immediately hire a different babysitter"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were traveling in space. How would {pronoun} feel?",
+    ["Proud", "Nauseous", "Terrified", "Bored", "Exhilirated", "Weightless"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} accidentally emitted an unpleasant anti-social noise at a dinner party. What would {pronoun} do?",
+    ["Say nothing and blush", "Apologize", "Laugh and repeat the offense (louder if possible)", "Blame the person sitting next to {object}", "Try to reproduce the sound by shifting in {possess} seat", "Carry on as if nothing happened."],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were to be honored. Which of the following would {pronoun} be happiest to accept?",
+    ["Employee of the Month", "Parent of the Year", "Cash award", "Blackwell's Best Dressed List", "Being knighted", "Simple thank-you note"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were kissing goodnight after a first date. Where would {pronoun} plant it?",
+    ["Lips", "Back of hand", "Cheek", "Feet", "Ear lobe", "Tonsils"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were choosing hotel accommodations. Which of the following would {pronoun} deem most important?",
+    ["A big pool", "Four star rating", "Free breakfast", "Workout facilities", "Vibrating bed", "Well stocked minir bar"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were a punctuation mark. Which would {pronoun} be?",
+    ["Question mark", "Number sign", "Quotation marks", "Parentheses", "Exclamation point", "Colon"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were buying a home. Which of the following would {pronoun} consider most important?",
+    ["School distrct", "Big closets", "Lush garden", "Garage and workshop", "Distance from in-laws", "Size of kitchen"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} had to grant government approval for a major city project. Which would {pronoun} choose?",
+    ["Hospital", "Library", "Casino", "Sports stadium", "Botanical gardens", "Skyscraper"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} had a garden. What would be its predominant feature?",
+    ["Flowers", "Weeds", "Native trees", "Manicured lawn", "Concrete", "Gnomes and fountains"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} could afford to buy a dream home. Which would {pronoun} buy?",
+    ["Sprawling farmhouse", "Beach condominium", "Efficient eco-friendly home", "Grand mansion", "Rugged mountain lodge", "Medieval castle"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name}'s doctor suggested more exercise. Which would {pronoun} do?",
+    ["Roller blade", "Yoga", "Triathlon", "Mall walk", "Tae Bo®", "Seek a second opinion"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} spent a relaxing day alone. What would {pronoun} do?",
+    ["Go shopping", "Surf the net", "Watch TV", "Meditate", "Enjoy the great outdoors", "Work on the tan"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} enjoyed a day in the snow. Which would {pronoun} do?",
+    ["Go ice fishing", "Take extreme jumps at the terrain park", "Head for the lodge bar", "Meander down a forest trail", "Make snow angels", "Spin \"donuts\" in a parking lot"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} inherited $100,000. What would {pronoun} do?",
+    ["Put an addition on the house", "Blow it all at the mall", "Donate it to charity", "Invest it wisely", "Head to Vegas", "Bury it in the backyard"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were going on a first date. What would be the plan?",
+    ["Dinner at a fancy restaurant and the symphony", "Hot dogs, drinks and a ball game", "Stay in, order Chinese food and rent Sleepless in Seattle", "Miniature golf and the mall food court", "Moonlit horseback ride down the beach", "Bail after 10 minutes"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were a person in a courtroom. Which would {pronoun} be?",
+    ["Bailiff", "Judge", "Stenographer", "Defendant", "District Attorney", "Court TV Reporter"],
+    ["Vanilla"]
+  },
+  {
+    "Imagine if {name} were providing expert testimony at a trial. What type of expert would {pronoun} be?",
+    ["Marriage counselor", "Environmental expert", "Handwriting analyst", "Paranormal psychic", "Pet behavior specialist", "Gastrointestinal surgeon"],
+    ["Vanilla"]
   }
 ]
