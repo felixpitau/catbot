@@ -8,7 +8,7 @@
     "prompt": "Imagine if {name}. what would {pronoun} do?",
     "choices": ["choice one", "choice two"],
     "tags": ["sample"]
-  }
+  },
   {
     "Imagine if {name} witnessed a purse-snatching on the city street. What would {pronoun} do?",
     ["Wrestle the purse-snatcher to the ground", "Ignore it and keep walking", "Attempt a citizen's arrest", "Offer counseling", "Scream hysterically", "Move to the country"],
@@ -233,5 +233,5 @@
     "Imagine if {name} were providing expert testimony at a trial. What type of expert would {pronoun} be?",
     ["Marriage counselor", "Environmental expert", "Handwriting analyst", "Paranormal psychic", "Pet behavior specialist", "Gastrointestinal surgeon"],
     ["Vanilla"]
-  },
+  }
 ]
