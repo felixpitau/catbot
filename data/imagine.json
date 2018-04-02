@@ -41,7 +41,7 @@
   },
   {
     "prompt": "Imagine if {name} were awakened at night by a burglar. What would {pronoun} do?",
-    ["Go back to sleep and rely on the insurance", "Scream", "Wake {possess} partner and demand action", "Tackle the burglar to the ground", "Sneak out and phone the police", "Attempt to counsel the burglar"],
+    "choices": ["Go back to sleep and rely on the insurance", "Scream", "Wake {possess} partner and demand action", "Tackle the burglar to the ground", "Sneak out and phone the police", "Attempt to counsel the burglar"],
     "tags": ["Vanilla"]
   },
   {
@@ -52,7 +52,7 @@
   {
     "prompt": "Imagine if {name} could be brilliant at one of the following. Which would {pronoun} choose?",
     "choices": ["Golf", "Painting", "Gambling", "Video games", "Cooking", "Programming cell phone"],
-    ["Vanilla"]
+    "tags": ["Vanilla"]
   },  
   {
     "prompt": "Imagine if {name} were hosting a party. How would {pronoun} handle the food?",
@@ -81,7 +81,7 @@
   },
   {
     "prompt": "Imagine if {name} suffered from a phobia. Which would it be?",
-    ["Ochlophobia (fear of crowds)", "Arachnophobia (fear of spiders)", "Triskaidekaphobia (fear of thirteen)", "Mysophobia (fear of dirt)", "Acrophobia (fear of heights)", "Nyctophobia (fear of darkness)"],
+    "choices": ["Ochlophobia (fear of crowds)", "Arachnophobia (fear of spiders)", "Triskaidekaphobia (fear of thirteen)", "Mysophobia (fear of dirt)", "Acrophobia (fear of heights)", "Nyctophobia (fear of darkness)"],
     "tags": ["Vanilla"]
   },
   {
