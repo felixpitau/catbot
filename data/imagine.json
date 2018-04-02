@@ -131,7 +131,7 @@
   },
   {
     "prompt": "Imagine if {name} stepped onto a bus and the only other passenger was {possess} favorite TV star. What would {pronoun} do?",
-    "choices": ["Ignore the star", "Politely say \"Hello\" but respect their privacy", "Tell the star about a great creative idea", "Offer a critique of the star's work", "Nervously ask for an autograph", "Drop their jaw and scream, \"I love you!\"],
+    "choices": ["Ignore the star", "Politely say 'Hello' but respect their privacy", "Tell the star about a great creative idea", "Offer a critique of the star's work", "Nervously ask for an autograph", "Drop their jaw and scream, 'I love you!'"],
     "tags": ["Vanilla"]
   },
   {
@@ -211,7 +211,7 @@
   },
   {
     "prompt": "Imagine if {name} enjoyed a day in the snow. Which would {pronoun} do?",
-    "choices": ["Go ice fishing", "Take extreme jumps at the terrain park", "Head for the lodge bar", "Meander down a forest trail", "Make snow angels", "Spin \"donuts\" in a parking lot"],
+    "choices": ["Go ice fishing", "Take extreme jumps at the terrain park", "Head for the lodge bar", "Meander down a forest trail", "Make snow angels", "Spin 'donuts' in a parking lot"],
     "tags": ["Vanilla"]
   },
   {
