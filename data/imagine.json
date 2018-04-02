@@ -145,7 +145,7 @@
     "tags": ["Vanilla"]
   },
   {
-    "Imagine if {name} had to baby-sit a relative's 5 year old kid. What would {pronoun} do?",
+    "prompt": "Imagine if {name} had to baby-sit a relative's 5 year old kid. What would {pronoun} do?",
     "choices": ["Take the kid to the zoo", "Bake a tray of cookies", "Eat junk food together and watch TV", "Put the kid to work doing laundry and dishes", "Teach the kid how to rebuild engines", "Immediately hire a different babysitter"],
     "tags": ["Vanilla"]
   },
