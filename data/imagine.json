@@ -41,7 +41,7 @@
   },
   {
     "prompt": "Imagine if {name} were awakened at night by a burglar. What would {pronoun} do?",
-    ["Go back to sleep and rely on the insurance", "Scream", "Wake {possess} partner and demand action", "Tackle the burglar to the ground", "Sneak out and phone the police", "Attempt to counsel the burglar"],
+    "choices": ["Go back to sleep and rely on the insurance", "Scream", "Wake {possess} partner and demand action", "Tackle the burglar to the ground", "Sneak out and phone the police", "Attempt to counsel the burglar"],
     "tags": ["Vanilla"]
   },
   {
@@ -52,7 +52,7 @@
   {
     "prompt": "Imagine if {name} could be brilliant at one of the following. Which would {pronoun} choose?",
     "choices": ["Golf", "Painting", "Gambling", "Video games", "Cooking", "Programming cell phone"],
-    ["Vanilla"]
+    "tags": ["Vanilla"]
   },  
   {
     "prompt": "Imagine if {name} were hosting a party. How would {pronoun} handle the food?",
@@ -81,7 +81,7 @@
   },
   {
     "prompt": "Imagine if {name} suffered from a phobia. Which would it be?",
-    ["Ochlophobia (fear of crowds)", "Arachnophobia (fear of spiders)", "Triskaidekaphobia (fear of thirteen)", "Mysophobia (fear of dirt)", "Acrophobia (fear of heights)", "Nyctophobia (fear of darkness)"],
+    "choices": ["Ochlophobia (fear of crowds)", "Arachnophobia (fear of spiders)", "Triskaidekaphobia (fear of thirteen)", "Mysophobia (fear of dirt)", "Acrophobia (fear of heights)", "Nyctophobia (fear of darkness)"],
     "tags": ["Vanilla"]
   },
   {
@@ -131,7 +131,7 @@
   },
   {
     "prompt": "Imagine if {name} stepped onto a bus and the only other passenger was {possess} favorite TV star. What would {pronoun} do?",
-    "choices": ["Ignore the star", "Politely say \"Hello\" but respect their privacy", "Tell the star about a great creative idea", "Offer a critique of the star's work", "Nervously ask for an autograph", "Drop their jaw and scream, \"I love you!\"],
+    "choices": ["Ignore the star", "Politely say 'Hello' but respect their privacy", "Tell the star about a great creative idea", "Offer a critique of the star's work", "Nervously ask for an autograph", "Drop their jaw and scream, 'I love you!'"],
     "tags": ["Vanilla"]
   },
   {
@@ -145,7 +145,7 @@
     "tags": ["Vanilla"]
   },
   {
-    "Imagine if {name} had to baby-sit a relative's 5 year old kid. What would {pronoun} do?",
+    "prompt": "Imagine if {name} had to baby-sit a relative's 5 year old kid. What would {pronoun} do?",
     "choices": ["Take the kid to the zoo", "Bake a tray of cookies", "Eat junk food together and watch TV", "Put the kid to work doing laundry and dishes", "Teach the kid how to rebuild engines", "Immediately hire a different babysitter"],
     "tags": ["Vanilla"]
   },
@@ -211,7 +211,7 @@
   },
   {
     "prompt": "Imagine if {name} enjoyed a day in the snow. Which would {pronoun} do?",
-    "choices": ["Go ice fishing", "Take extreme jumps at the terrain park", "Head for the lodge bar", "Meander down a forest trail", "Make snow angels", "Spin \"donuts\" in a parking lot"],
+    "choices": ["Go ice fishing", "Take extreme jumps at the terrain park", "Head for the lodge bar", "Meander down a forest trail", "Make snow angels", "Spin 'donuts' in a parking lot"],
     "tags": ["Vanilla"]
   },
   {
