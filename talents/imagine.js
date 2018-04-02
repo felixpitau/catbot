@@ -27,14 +27,20 @@ default export class Imagine extends Talent {
   }
 
   end (m) {
-    
+    let g = Imagine.game
+    g.inGame = false
   }
 
   join (m) {
+    let g = Imagine.game
+    if (!g.inGame) {
+      return false
+    }
     let exists = false
     for (let player in g.players) {
       if (player.id === m.author.id) {
         exists = true
+        break
       }
     }
     if (!exists) {
@@ -68,13 +74,18 @@ default export class Imagine extends Talent {
     
   }
 
-  choose (m, choice) {
+  showSubject (m, choice) {
     let roll = () => {return g.subjects[Math.floor(Math.random() * g.subjects.length)]}
     let rollOne = roll()
     let rollTwo = roll()
     until (rollOne !== rollTwo || g.subjects.length < 2) {
       rollTwo = roll()
     }
+    this.say(m, client.findUser(this.turn()).username + ', it is your turn. Choose a subject: 1. ' + rollOne + ' 2. ' + rollTwo)
+  }
+
+  choose (m, choice) {
+    
   }
 
   onMessage (message) {
@@ -93,7 +104,7 @@ default export class Imagine extends Talent {
       this.react(m, /^imagineif$/gi, 'use: `imagineif (status|subject|choose|join|start|end)`')
       this.react(m, /^imagineif status$/gi, () => {
         if (g.inGame) {
-          this.say(m, 'A game is in progress and it is ' + client.fetchUser(g.turn).username + '\'s turn!')
+          this.say(m, 'A game is in progress and it is ' + client.fetchUser(this.turn()).username + '\'s turn!')
         } else {
           this.say(m, 'A game is not currently in progress')
         }
