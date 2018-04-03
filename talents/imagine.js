@@ -21,9 +21,11 @@ default export class Imagine extends Talent {
       stage: 'subject',
       turnCount: 0,
       inGame: true,
+      subject: {},
       players: [],
       subjects: []
     }
+    this.showSubject(m)
   }
 
   end (m) {
@@ -67,11 +69,11 @@ default export class Imagine extends Talent {
   }
 
   subjectAdd (m) {
-    
+    // TODO: finish this
   }
 
   subjectRemove (m) {
-    
+    // TODO: finish this
   }
 
   showSubject (m, choice) {
@@ -81,30 +83,45 @@ default export class Imagine extends Talent {
     until (rollOne !== rollTwo || g.subjects.length < 2) {
       rollTwo = roll()
     }
+    Imagine.subjects = [rollOne, rollTwo]
     this.say(m, client.findUser(this.turn()).username + ', it is your turn. Choose a subject: 1. ' + rollOne + ' 2. ' + rollTwo)
   }
 
   showChoices (m) {
-    
+    // TODO: finish this
   }
 
   choose (m) {
 		let g = Imagine.game
 		let choicePat = /^imagineif choose ([0-9])$/gi
-		let choice = m.content.match(choicePat)
+		let choice = Number.parseInt(m.content.match(choicePat)[1])
 		if (g.stage === 'subject') {
       if (this.turn() === m.author.id) {
-      	
+      	if (choice === 1 || choice === 2) {
+          for (let subject in g.subjects) {
+            if (Imagine.subjects[choice - 1] === subject.name) {
+              g.subject = subject
+            }
+          }
+          this.say(m, 'You have picked ' + g.subject + '!')
+          this.showChoices(m)
+        }
       } else {
         this.say(m, 'It is not your turn!')
       }
     } else if (g.stage === 'choice') {
       if (this.isInPrivate(m)) {
-        
+        if (choice > 0 && choice <= g.subject.choices.length) {
+          this.showSubject(m)
+        }
       } else {
         this.say(m, 'You must submit that in private!')
       }
     }
+  }
+
+  dub (text) {
+    // TODO: replace {name} and pronouns in text and return result
   }
 
   onMessage (message) {
@@ -114,6 +131,7 @@ default export class Imagine extends Talent {
         stage: 'subject',
         turnCount: 0,
         inGame: false,
+        subject: {},
         players: [],
         subjects: []
       }
@@ -133,11 +151,7 @@ default export class Imagine extends Talent {
       this.react(m, /^imagineif choose$/gi, 'use `imagineif choose (1..6)` to choose a person or a response')
       this.react(m, /^imagineif choose [0-9]$/gi, () => {
         if (g.inGame) {
-          if (g.stage === 'subject') {
-            
-          } else if (g.stage === 'choice') {
-            
-          }
+          this.choice(m)
         } else {
           this.say(m, 'There is no game running right now')
         }
@@ -151,6 +165,18 @@ default export class Imagine extends Talent {
     })
     this.react(m, /^imagineif subject/gi, () => {
       this.react(m, /^imagineif subject$/gi, 'use: `imagineif subject (add|remove)`')
+      this.react(m, /^imagineif subject add/gi, () => {
+        this.react(m, /^imagineif subject add$/gi, 'use: `imagineif subject add (he|she|they) (name)`')
+        this.react(m, /^imagineif subject add (he|she|they) (.+)$/gi, () => {
+          this.subjectAdd(m)
+        })
+      })
+      this.react(m, /^imagineif subject remove/gi, () => {
+        this.react(m, /^imagineif subject remove$/gi, 'use: `imagineif subject remove (name)`')
+        this.react(m, /^imagineif subject remove (.+)$/gi, () => {
+          this.subjectRemove(m)
+        })
+      })
     })
     this.react(m, /^imagineif start/gi, () => {
       this.react(m, /^imagineif start$/gi, () => {
