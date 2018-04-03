@@ -197,7 +197,7 @@ export default class Imagine extends Talent {
         } else {
           this.say(m, 'There is no game running to end.')
         }
-      }
+      })
       this.react(m, /^imagineif end\!$/gi, () => {
         this.end(m)
       })
