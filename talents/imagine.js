@@ -80,9 +80,9 @@ export default class Imagine extends Talent {
     let roll = () => {return g.subjects[Math.floor(Math.random() * g.subjects.length)]}
     let rollOne = roll()
     let rollTwo = roll()
-    until (rollOne !== rollTwo || g.subjects.length < 2) {
+    do {
       rollTwo = roll()
-    }
+    } while (rollOne === rollTwo && g.subjects.length > 1)
     Imagine.subjects = [rollOne, rollTwo]
     this.say(m, client.findUser(this.turn()).username + ', it is your turn. Choose a subject: 1. ' + rollOne + ' 2. ' + rollTwo)
   }
