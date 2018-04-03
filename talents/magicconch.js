@@ -4,13 +4,11 @@ export default class MagicConch extends Talent {
   onMessage (message) {
     let m = message
     this.react(m, /^magic ?(conch|shell|conch shell),? ?(should).+( or ).+\??/gi, () => {
-      console.log('* magic conch')
       let prompt = /^(magic ?(conch|shell|conch shell),? ?(should)) (.+)\?/gi
       let prpt = prompt.exec(message.content)
       let choices = prpt[4].split(/,\s|\sor\s/i)
       let who = prpt[4].split(/\s/i)[0]
       let choice = choices[Math.floor(Math.random() * choices.length)]
-      console.log(prpt)
       choice = choice.replace(/[\s^]your[\s\.$]/gi, ' <my> ')
       choice = choice.replace(/[\s^]my[\s\.$]/gi, ' your ')
       choice = choice.replace(/[\s^]<my>[\s\.$]/gi, ' my ')
