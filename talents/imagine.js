@@ -2,7 +2,7 @@ import Talent from '../talent'
 import prompts from '../data/imagine.json'
 import { client } from '../catbot'
 
-default export class Imagine extends Talent {
+export default class Imagine extends Talent {
 
   turn () {
     let g = Imagine.game
