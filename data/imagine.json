@@ -56,7 +56,7 @@
   },
   {
     "prompt": "Imagine if {name} could travel in a time machine. Which event would {they} choose to witness?",
-    "choices": ["Super Bowl III", "Wright Brothers' first flight", "The first Thanksgiving", "{their} own birth", "Next year's Kentucky Derby", "Woodstock"],
+    "choices": ["Super Bowl III", "Wright Brothers' first flight", "The first Thanksgiving", "Day of {their} own birth", "Next year's Kentucky Derby", "Woodstock"],
     "tags": ["Vanilla"]
   },
   {
