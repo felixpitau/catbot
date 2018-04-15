@@ -1,37 +1,51 @@
 import id from './mem/id'
+import settings from './mem/settings'
 
 export default class Talent {
   constructor (name) {
     this.name = name
+    this._message = null
+    this.lastMessage = null
+    if (settings[name]) {
+      this.settings = settings[name]
+    }
   }
 
-  isFromSelf (message) {
-    return (message.author.id === id.bot.catbot)
+  get message () {
+    return this._message
   }
 
-  isInPrivate (message) {
-    return (message.channel.type === 'dm')
+  isFrom (name) {
+    return (this.message.author.id === id.member[name])
   }
 
-  isInPublic (message) {
-    return (message.channel.type === 'text')
+  get isFromSelf () {
+    return (this.message.author.id === id.bot.catbot)
   }
 
-  isIn (message, channel) {
+  get isInPrivate () {
+    return (this.message.channel.type === 'dm')
+  }
+
+  get isInPublic () {
+    return (this.message.channel.type === 'text')
+  }
+
+  isIn (channel) {
     // general, animals, memes, cursed, interesting, music, lair
-    return (message.channel.id === id.channel[channel])
+    return (this.message.channel.id === id.channel[channel])
   }
 
-  react (message, pattern, output, elseif) {
-    if (message.author.id !== id.bot.catbot) {
+  react (pattern, output, elseif) {
+    if (this.message.author.id !== id.bot.catbot) {
       if (pattern instanceof RegExp) {
-        if (message.content.match(pattern) !== null) {
+        if (this.message.content.match(pattern) !== null) {
           if (output instanceof Function) {
             output()
           } else if (typeof output === 'string') {
-            message.channel.send(output)
+            this.message.channel.send(output)
           } else if (output instanceof Array) {
-            message.channel.send(output[Math.floor(Math.random() * output.length)])
+            this.message.channel.send(output[Math.floor(Math.random() * output.length)])
           }
         } else {
           if (elseif !== null && elseif instanceof Function) {
@@ -42,12 +56,21 @@ export default class Talent {
     }
   }
 
-  say (message, text) {
+  say (text) {
     if (typeof text === 'string') {
-      message.channel.send(text)
+      this.message.channel.send(text)
     } else if (text instanceof Array) {
-      message.channel.send(text[Math.floor(Math.random() * text.length)])
+      this.message.channel.send(text[Math.floor(Math.random() * text.length)])
     }
+  }
+
+  _beforeOnMessage (message) {
+    this._message = message
+  }
+
+  _afterOnMessage () {
+    this.lastMessage = this.message
+    this._message = null
   }
 
   onMessage (message) {
