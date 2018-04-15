@@ -4,7 +4,6 @@ export default class MagicConch extends Talent {
   onMessage (message) {
     let m = message
     this.react(/^magic ?(conch|shell|conch shell),? ?(should).+( or ).+\??/gi, () => {
-      console.log('* magic conch')
       let prompt = /^(magic ?(conch|shell|conch shell),? ?(should)) (.+)\?/gi
       let prpt = prompt.exec(message.content)
       let choices = prpt[4].split(/,\s|\sor\s/i)
