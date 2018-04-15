@@ -4,12 +4,16 @@ import path from 'path'
 
 export default class Quotes extends Talent {
 
+  get currentYear () {
+    return (new Date()).getFullYear()
+  }
+
   onMessage (message) {
     let m = message
     let quotePat = /^\"(.+)\" ([a-z]+) ([0-9]{4})$/gi
     let quotesPath = path.join(__dirname, '..', 'mem', 'quotes.json')
-    this.react(m, quotePat, () => {
-      if (this.isInPublic(m)) {
+    this.react(quotePat, () => {
+      if (this.isInPublic) {
         let quotesMem = JSON.parse(fs.readFileSync(quotesPath))
         let quoteExec = quotePat.exec(m.content)
         quotesMem.push({
@@ -22,24 +26,24 @@ export default class Quotes extends Talent {
           year: quoteExec[3]
         })
         fs.writeFileSync(quotesPath, JSON.stringify(quotesMem))
-        this.say(m, 'Quote has been added to the quote journal!')
+        this.say('Quote has been added to the quote journal!')
       } else {
-        this.say(m, 'You can only record quotes for the quote journal in a public channel')
+        this.say('You can only record quotes for the quote journal in a public channel')
       }
     })
-    this.react(m, /^quote/gi, () => {
+    this.react(/^quote/gi, () => {
       let settings = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'mem', 'settings.json')))
-      this.react(m, /^quote$/gi, 'usage: `quote (awards|list|doc)`')
-      this.react(m, /^quote doc/gi, 'Here you go! https://docs.google.com/spreadsheets/d/1YJzJnFVqwSMjaeuuZDgdzMitVQ9mMRCyVVwPeTo8cgM/edit?usp=sharing')
-      this.react(m, /^quote backup$/gi, () => {
+      this.react(/^quote$/gi, 'usage: `quote (awards|list|doc)`')
+      this.react(/^quote doc/gi, 'Here you go! https://docs.google.com/spreadsheets/d/1YJzJnFVqwSMjaeuuZDgdzMitVQ9mMRCyVVwPeTo8cgM/edit?usp=sharing')
+      this.react(/^quote backup$/gi, () => {
         fs.copyFileSync(quotesPath, path.join(__dirname, '..', 'mem', 'quotes-backup-' + Math.floor(Math.random() * 10000) + '.json'))
-        this.say(m, 'Quote journal has been backed up!')
+        this.say('Quote journal has been backed up!')
       })
-      this.react(m, /^quote awards/gi, () => {
+      this.react(/^quote awards/gi, () => {
         let qaCategories = ["Funniest Quote", "Most Inappropriate", "Best Out-of-Context", "Most Concerning", "Most Savage", "Best for a T-Shirt", "Most Loved", "Most Hated", "Best Quote with Response"];
         let lastYear = (new Date().getFullYear()) - 1
-        this.react(m, /^quote awards$/gi, 'usage: `quote awards (categories|nominate|vote)`')
-        this.react(m, /^quote awards categories/gi, () => {
+        this.react(/^quote awards$/gi, 'usage: `quote awards (categories|nominate|vote)`')
+        this.react(/^quote awards categories/gi, () => {
           message.channel.send('***QUOTE AWARD CATEGORIES for ' + lastYear + ':***');
           let response = '';
           for (let i = 1; i <= qaCategories.length; i++) {
@@ -47,11 +51,11 @@ export default class Quotes extends Talent {
           }
           message.channel.send(response);
         })
-        this.react(m, /^quote awards nominate/gi, () => {
-          this.react(m, /^quote awards nominate$/gi, 'usage: `quote awards nominate <category> <quote line from google doc>`')
-          this.react(m, /^quote awards nominate [0-9]+ [0-9]+$/gi, () => {
+        this.react(/^quote awards nominate/gi, () => {
+          this.react(/^quote awards nominate$/gi, 'usage: `quote awards nominate <category> <quote line from google doc>`')
+          this.react(/^quote awards nominate [0-9]+ [0-9]+$/gi, () => {
             if (settings.quote.nominate) {
-              if (this.isInPrivate(m)) {
+              if (this.isInPrivate) {
                 let qaPat = /(quote awards nominate )([0-9]+) ([0-9]+)/gi
                 let qaArr = qaPat.exec(message.content)
                 let qaCategory = parseInt(qaArr[2])
@@ -78,32 +82,69 @@ export default class Quotes extends Talent {
                   message.channel.send('Incorrect category number. Please refer to the list provided by `quote awards categories`.')
                 }
               } else {
-                this.say(m, 'Please nominate in a DM to me, cat bot!')
+                this.say('Please nominate in a DM to me, cat bot!')
               }
             } else {
-              this.say(m, 'You cannot nominate quotes at this time')
+              this.say('You cannot nominate quotes at this time')
             }
           })
         })
-        this.react(m, /^quote awards vote/gi, () => {
-          this.react(m, /^quote awards vote$/gi, 'usage: `quote awards vote <category> [<quote from list>]`')
-          this.react(m, /^quote awards vote [0-9]+ [0-9]+$/gi, () => {
+        this.react(/^quote awards vote/gi, () => {
+          this.react(/^quote awards vote$/gi, 'usage: `quote awards vote <category> [<quote from list>]`')
+          this.react(/^quote awards vote [0-9]+ [0-9]+$/gi, () => {
             if (settings.quote.vote) {
               // TODO: implement this
             } else {
-              this.say(m, 'You cannot vote on quotes at this time')
+              this.say('You cannot vote on quotes at this time')
             }
           })
         })
       })
-      this.react(m, /^quote list$/gi, () => {
-        // this.react(m, /^quote list$/gi, '`usage: quote list`')
+      this.react(/^quote list/gi, () => {
         let quotesMem = JSON.parse(fs.readFileSync(quotesPath))
-        this.say(m, 'Here are the latest quotes in the quote journal:')
-        for (let i = 0; i < (quotesMem.length > 5 ? 5 : quotesMem.length); i++) {
+        let count = 5
+        let by = 'anybody'
+        let year = this.currentYear
+        let i = quotesMem.length - 1
+        let order = 'descending'
+        this.react(/ -?-all/gi, () => {
+          count = quotesMem.length - 1
+        })
+        let countPat = / -?-limit ([0-9]+)/gi
+        this.react(countPat, () => {
+          count = countPat.exec(m.content)[1]
+        })
+        let byPat = / -?-by ([a-z]+)/gi
+        this.react(byPat, () => {
+          by = byPat.exec(m.content)[1]
+        })
+        let yearPat = / -?-year ([0-9]+)/gi
+        this.react(yearPat, () => {
+          year = yearPat.exec(m.content)[1]
+        })
+        this.react(/ -?-asc(ending)?/gi, () => {
+          i = 0
+          order = 'ascending'
+        })
+        console.log(order)
+
+        let quoteList = ''
+        while (count > 0 && i > 0 && i < quotesMem.length) {
           let quote = quotesMem[i]
-          this.say(m, '"' + quote.quote + '" ' + quote.by + ' ' + quote.year)
+          console.log(i + ' ' + quote.quote)
+          if (by === 'anybody' || quote.by.toLowerCase() === by.toLowerCase()) {
+            quoteList += '  "' + quote.quote + '" *' + quote.by + ' ' + quote.year + '*\n'
+            count--
+          }
+          if (order !== 'descending') {
+            i++
+          } else {
+            i--
+          }
         }
+        this.say('Quote Journal search results:\n' + quoteList)
+        // this.react(m, /^quote list$/gi, '`usage: quote list`')
+
       })
     })
   }

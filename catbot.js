@@ -13,7 +13,9 @@ client.on('ready', () => {
 
 client.on('message', message => {
   for (let talent in talents) {
+    talents[talent]._beforeOnMessage(message)
     talents[talent].onMessage(message)
+    talents[talent]._afterOnMessage(message)
   }
 })
 

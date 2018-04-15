@@ -65,3 +65,5 @@ mem
 
 # login key
 login
+
+*.old.js

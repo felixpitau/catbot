@@ -28,7 +28,7 @@ export default class Calculate extends Talent {
   }
 
   onMessage (message) {
-    if (!this.isFromSelf(message)) {
+    if (!this.isFromSelf) {
       if (message.content.match(/^(calculate|calc|roll) (.+)/gi) !== null) {
         let calcPat = /^(calculate|calc|roll) (.+)/gi
         let rollPat = /(\d*d\d+)/gi
