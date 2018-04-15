@@ -10,35 +10,43 @@ export default class Imagine extends Talent {
     return path.join(__dirname, '..', 'mem', 'imagine.json')
   }
 
-  get game () {
-    return JSON.parse(fs.readFileSync(this.path))
+  load () {
+    let game = JSON.parse(fs.readFileSync(this.path))
+    this.players = game.players
+    this.choices = game.choices
+    this.turnCount = game.turnCount
+    this.status = game.status
+    this.plays = game.plays
+    this.subject = game.subject
+    return game
   }
 
-  set game (game) {
+  save (update = {}) {
+    let game = {
+      players: this.players,
+      choices: this.choices,
+      turnCount: this.turnCount,
+      status: this.status,
+      plays: this.plays,
+      subject: this.subject
+    }
+    game = Object.assign(game, update)
     fs.writeFile(this.path, JSON.stringify(game), 'utf8', function (err) {
       if (err) {
         this.message.channel.send('Oops! Something went wrong! D:')
         return console.log(err);
       }
     });
-  }
-
-  save () {
-    this.game = {
-      players: this.players,
-      choices: this.choices,
-      turnCount: this.turnCount
-    }
-  }
-
-  load () {
-    this.players = this.game.players
-    this.choices = this.game.choices
-    this.turnCount = this.game.turnCount
+    this.load()
   }
 
   onJoin () {
     // Add player to the game if they are not already in
+    this.players.push({
+      id: id,
+      play: null
+    })
+    this.say('You have been added to the game!')
   }
 
   onLeave () {
@@ -104,40 +112,86 @@ export default class Imagine extends Talent {
 
   isInGame (id) {
     // return true if player is in the game
+    for (this.players)
   }
 
   get whoseTurn () {
-    // return the id of the player whose turn it is
+    // return the id of the player whose turn it is, null if not
+    if (this.players.length > 0) {
+      this.players(this.turnCount % this.players.length)
+    }
   }
 
   onMessage (message) {
     let m = message
+    let id = m.author.id
     let react = this.react
     let say = this.say
     react(/^imagineif/gi, () => {
+      this.load()
       react(/^imagineif$/gi, 'use `imagineif (status|join|leave|ready|play|choose)`')
       react(/^imagineif status/gi, () => {
         say('')
       })
-      react(/^imagineif join/gi, this.onJoin)
-      if (this.isInGame(m.author.id)) {
-        react(/^imagineif leave/gi, this.onLeave)
-        react(/^imagineif ready/gi, this.onReady)
-        let playPat = /^imagineif play ([0-6])/gi
-        react(playPat, () => {
-          this.onPlay(playPat.exec(m.content)[1])
+      react(/^imagineif start/gi, () => {
+        react(/^imagineif start\!$/gi, () => {
+          this.onStart()
+        }, () => {
+          if (this.status === 'none') {
+            this.onStart()
+          } else {
+            say('The game has already been started! use `imagineif start!` to override')
+          }
         })
-        if (this.whoseTurn === m.author.id) {
-          let choosePat = /^imagineif choose ([0-2])/gi
-          react(choosePat, () => {
-            this.onChoose(choosePat.exec(m.content)[1])
-          })
+      }, () => {
+        react(
+          /^imagineif (join|leave|ready|play|choose)/gi,
+          'You cannot do that because a game has not been started!',
+          'That is not a valid command'
+        )
+      })
+      react(/^imagineif join/gi, () => {
+        if (this.isInGame(id)) {
+          say('You are already in the game!')
         } else {
-          say('You cannot do that because it is not your turn!')
+          this.onJoin(id)
         }
-      } else {
-        say('You cannot do that because you are not in the game!')
-      }
+      })
+      react(/^imagineif leave/gi, () => {
+        if (this.isInGame(id)) {
+          this.onLeave()
+        } else {
+          say('You were not even in the game!')
+        }
+      })
+      react(/^imagineif ready/gi, () => {
+        if (this.status === 'ready') {
+          this.onReady()
+        } else {
+          say('A game has not been started or is already in play!')
+        }
+      })
+      let playPat = /^imagineif play ([0-6])/gi
+      react(playPat, () => {
+        if (this.status === 'play') {
+          this.onPlay(playPat.exec(m.content)[1])
+        } else {
+          say('You cannot do that at this time')
+        }
+      })
+      let choosePat = /^imagineif choose ([0-2])/gi
+      react(choosePat, () => {
+        if (this.status === 'choose') {
+          if (this.whoseTurn === id) {
+            this.onChoose(choosePat.exec(m.content)[1])
+          } else {
+            say('You cannot do that because it is not your turn!')
+          }
+        } else {
+          say('It is not yet time to choose the next subject!')
+        }
+      })
+      this.save()
     })
   }
 }
