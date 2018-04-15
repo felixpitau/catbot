@@ -161,7 +161,7 @@
   },
   {
     "prompt": "Imagine if {name} were choosing hotel accommodations. Which of the following would {they} deem most important?",
-    "choices": ["A big pool", "Four star rating", "Free breakfast", "Workout facilities", "Vibrating bed", "Well stocked minir bar"],
+    "choices": ["A big pool", "Four star rating", "Free breakfast", "Workout facilities", "Vibrating bed", "Well stocked mini bar"],
     "tags": ["Vanilla"]
   },
   {
