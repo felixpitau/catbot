@@ -65,7 +65,7 @@
     "tags": ["Vanilla"]
   },
   {
-    "prompt": "Imagine if {name} suffered a minor crisis. Which would upset {they} most?",
+    "prompt": "Imagine if {name} suffered a minor crisis. Which would upset {them} most?",
     "choices": ["Burning the roast", "Scratch on the car", "Computer virus", "TV breaking down", "Credit cards cancelled", "Stain on the lapel"],
     "tags": ["Vanilla"]
   },
