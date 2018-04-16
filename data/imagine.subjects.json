@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Felix",
+    "pronoun": "he",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Eli",
+    "pronoun": "they",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Carson",
+    "pronoun": "they",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Kat",
+    "pronoun": "she",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Nick",
+    "pronoun": "he",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Ian",
+    "pronoun": "he",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Ryan",
+    "pronoun": "he",
+    "tags": ["friends"]
+  },
+  {
+    "name": "Silas",
+    "pronoun": "he",
+    "tags": ["friends"]
+  }
+]

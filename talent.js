@@ -17,7 +17,7 @@ export default class Talent {
   }
 
   isFrom (name) {
-    return (this.message.author.id === id.member[name])
+    return (this.message.author.id === id.member[name.toLowerCase()])
   }
 
   get isFromSelf () {
@@ -51,6 +51,10 @@ export default class Talent {
         } else {
           if (elseif !== null && elseif instanceof Function) {
             elseif()
+          } else if (typeof elseif === 'string') {
+            this.message.channel.send(elseif)
+          } else if (elseif instanceof Array) {
+            this.message.channel.send(elseif[Math.floor(Math.random() * output.length)])
           }
         }
       }
