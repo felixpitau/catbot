@@ -10,7 +10,7 @@ export default class Quotes extends Talent {
 
   onMessage (message) {
     let m = message
-    let quotePat = /^\"(.+)\" ([a-z]+) ([0-9]{4})$/gi
+    let quotePat = /^\"(.+)\" -? ([a-z]+) ([0-9]{4})$/gi
     let quotesPath = path.join(__dirname, '..', 'mem', 'quotes.json')
     this.react(quotePat, () => {
       if (this.isInPublic) {

@@ -1,5 +1,6 @@
 import Talent from '../talent'
-import prompts from '../data/imagine.json'
+import prompts from '../data/imagine.prompts.json'
+import subjectPresets from '../data/imagine.subjects.json'
 import { client } from '../catbot'
 import fs from 'fs'
 import path from 'path'
@@ -195,7 +196,7 @@ export default class Imagine extends Talent {
 
   showChoice () {
     // Display the two choices of subjects
-    let subjects = this.settings.subjects
+    let subjects = subjectPresets
     if (this.status !== 'choose') {
       this.status = 'choose'
       let roll = () => {return subjects[Math.floor(Math.random() * subjects.length)]}
