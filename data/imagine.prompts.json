@@ -81,7 +81,7 @@
   },
   {
     "prompt": "Imagine if {name} could do only one of the following every morning. Which would {they} choose?",
-    "choices": ["Go for a 5-mile run", "Sleep until 1:00 pm", "Drink coffee and read a newspaper", "Spend quality time with spouse", "Watch pre-game football shows", "Take a 30 minute how shower"],
+    "choices": ["Go for a 5-mile run", "Sleep until 1:00 pm", "Drink coffee and read a newspaper", "Spend quality time with spouse", "Watch pre-game football shows", "Take a 30 minute hot shower"],
     "tags": ["Vanilla"]
   },
   {
