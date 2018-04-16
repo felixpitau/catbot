@@ -1,5 +1,6 @@
 import id from './mem/id'
 import settings from './mem/settings'
+import { client } from './catbot'
 
 export default class Talent {
   constructor (name) {
@@ -61,6 +62,14 @@ export default class Talent {
       this.message.channel.send(text)
     } else if (text instanceof Array) {
       this.message.channel.send(text[Math.floor(Math.random() * text.length)])
+    }
+  }
+
+  sayIn (channelID, text) {
+    if (typeof text === 'string') {
+      client.channels.find('id', id.channel[channelID]).send(text)
+    } else if (text instanceof Array) {
+      client.channels.find('id', id.channel[channelID]).send(text[Math.floor(Math.random() * text.length)])
     }
   }
 
