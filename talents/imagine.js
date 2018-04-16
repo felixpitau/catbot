@@ -54,11 +54,17 @@ export default class Imagine extends Talent {
 
   onLeave (id) {
     // Remove player from game, advance turn if turn is on leaving player
+    let player = {
+      name: 'somebody'
+    }
+    console.log(this.players)
     for (let i in this.players) {
-      if (i === id) {
-        this.players.splice(i, 1)
+      console.log(i)
+      if (this.players[i].id === id) {
+        player = this.players.splice(i, 1)
       }
     }
+    this.sayIn('lair', player[0].name + ' has left the game!')
   }
 
   onStart () {
@@ -80,7 +86,7 @@ export default class Imagine extends Talent {
   onReady () {
     // Start the game by displaying choices for the first player
     if (this.status === 'ready') {
-      this.say('Welcome to ***Imagine If***!')
+      this.sayIn('lair', 'Welcome to ***Imagine If***!')
     }
     if (this.status === 'choose' || this.status === 'ready') {
       this.showChoice()
@@ -103,11 +109,12 @@ export default class Imagine extends Talent {
     play.choices.forEach((text, n) => {
       choicesText += filterText((n + 1) + '. ' + text) + '\n'
     })
-    this.say(
+    this.sayIn(
+      'lair',
       '```md\n' +
       '# ' + filterText(play.prompt) + ' #\n\n' +
       choicesText + '\n' +
-      'imagineif play (1-' + play.choices.length + ')' +
+      'play (1-' + play.choices.length + ')' +
       '```'
     )
   }
@@ -124,15 +131,14 @@ export default class Imagine extends Talent {
       if (player.play !== null) {
         playCount++
         if (typeof plays[player.play] === 'undefined') {
-          plays[player.play] = [id]
+          plays[player.play] = [player.id]
         } else {
-          plays[player.play].push(id)
+          plays[player.play].push(player.id)
         }
       }
     }
     if (playCount === this.players.length) {
       let highestCount = 2
-      this.players.forEach(player => player.play = null)
       for (let i in plays) {
         let play = plays[i]
         if (play.length > highestCount) {
@@ -146,14 +152,18 @@ export default class Imagine extends Talent {
           for (let j in plays[i]) {
             let player = this.player(plays[i][j])
             player.score++
-            scoreText += '@' + player.name + ' gets a point for playing ' + i + '!'
           }
         }
       }
+      for (let i in this.players) {
+        let player = this.players[i]
+        scoreText += player.name + ' played ' + (player.play + 1) + '. ' + this.subject.choices[parseInt(player.play)]
+        player.play = null
+      }
       if (scoreText === '') {
-        this.say('Nobody gets any points this round!')
+        this.sayIn('lair', 'Nobody gets any points this round!')
       } else {
-        this.say(scoreText)
+        this.sayIn('lair', scoreText)
       }
       let scoreLimit = this.settings.winning
       let winnerList = []
@@ -164,11 +174,17 @@ export default class Imagine extends Talent {
         }
       }
       if (winnerList.length > 0) {
-        this.say('GAME OVER!\nAnd the winner' + (winnerList.length > 1 ? 's' : '') + ' of this game ' + (winnerList.length > 1 ? 'are' : 'is') + ': ')
+        this.sayIn('lair', 'GAME OVER!\nAnd the winner' + (winnerList.length > 1 ? 's' : '') + ' of this game ' + (winnerList.length > 1 ? 'are' : 'is') + ': ')
         winnerList.forEach(winner => {
-          this.say('@' + winner.name)
+          this.sayIn('lair', '@' + winner.name)
         })
-        this.state = 'none'
+        this.status = 'none'
+        this.players = []
+        this.choices = []
+        this.plays = []
+        this.turnCount = 0
+        this.subject = {}
+        this.play = {}
       } else {
         this.turnCount++
         this.showScore()
@@ -190,13 +206,14 @@ export default class Imagine extends Talent {
       } while (rollOne === rollTwo && subjects.length > 1)
       this.choices = [rollOne, rollTwo]
     }
-    this.say(
+    this.sayIn(
+      'lair',
       '***@' + this.whoseTurn.name + '***, ' +
       'it is your turn. Choose a subject:' +
       '```md\n' +
       '1. ' + this.choices[0].name + '\n' +
       '2. ' + this.choices[1].name + '\n\n' +
-      'imagineif choose (1|2)\n' +
+      'choose (1|2)\n' +
       '```'
     )
   }
@@ -212,7 +229,8 @@ export default class Imagine extends Talent {
     this.players.forEach(player => {
       scoreText += '* ' + player.name + ' has ' + player.score + ' points\n'
     })
-    this.say(
+    this.sayIn(
+      'lair',
       '```md\n' +
       '# SCOREBOARD #\n' +
       scoreText + '\n' +
@@ -279,6 +297,47 @@ export default class Imagine extends Talent {
     let id = m.author.id
     let react = (r, o, e) => { this.react(r, o, e) }
     let say = (msg) => { this.say(msg) }
+
+    let playRes = (n) => {
+      if (this.isInGame(id)) {
+        if (this.isInPrivate) {
+          if (this.status === 'play') {
+            this.onPlay(id, n)
+          } else {
+            say('You cannot do that at this time')
+          }
+        } else {
+          say('You can only do that in private!')
+        }
+      } else {
+        say('You have to be in the game to do that!')
+      }
+    }
+    let chooseRes = (n) => {
+      if (this.isInGame(id)) {
+        if (this.status === 'choose') {
+          if (this.whoseTurn.id === id) {
+            this.onChoose(id, n)
+          } else {
+            say('You cannot do that because it is not your turn!')
+          }
+        } else {
+          say('It is not yet time to choose the next subject!')
+        }
+      } else {
+        say('You cannot do that because you are not in the game!')
+      }
+    }
+
+    if (this.isInGame(id)) {
+      react(/^play ([1-6])$/gi, () => {
+        playRes((/^play ([1-6])$/gi).exec(m.content)[1])
+      })
+      react(/^choose ([1-6])$/gi, () => {
+        chooseRes((/^choose ([1-6])$/gi).exec(m.content)[1])
+      })
+    }
+
     react(/^imagineif/gi, () => {
       this.load()
       react(/^imagineif$/gi, 'use `imagineif (status|join|leave|ready|play|choose)`')
@@ -289,7 +348,8 @@ export default class Imagine extends Talent {
           'play': 'Waiting for everybody to make their play. ',
           'choose': 'Waiting for a choice of subject'
         }
-        say(statusText[this.status])
+        this.sayIn('lair', statusText[this.status])
+        this.showScore()
         if (this.status === 'play' || this.status === 'choose') {
           this.onReady()
         }
@@ -336,35 +396,11 @@ export default class Imagine extends Talent {
       })
       let playPat = /^imagineif play ([1-6])/gi
       react(playPat, () => {
-        if (this.isInGame(id)) {
-          if (this.isInPrivate) {
-            if (this.status === 'play') {
-              this.onPlay(id, playPat.exec(m.content)[1])
-            } else {
-              say('You cannot do that at this time')
-            }
-          } else {
-            say('You can only do that in private!')
-          }
-        } else {
-          say('You have to be in the game to do that!')
-        }
+        playRes(playPat.exec(m.content)[1])
       })
       let choosePat = /^imagineif choose ([1-2])/gi
       react(choosePat, () => {
-        if (this.isInGame(id)) {
-          if (this.status === 'choose') {
-            if (this.whoseTurn.id === id) {
-              this.onChoose(id, choosePat.exec(m.content)[1])
-            } else {
-              say('You cannot do that because it is not your turn!')
-            }
-          } else {
-            say('It is not yet time to choose the next subject!')
-          }
-        } else {
-          say('You cannot do that because you are not in the game!')
-        }
+        chooseRes(choosePat.exec(m.content)[1])
       })
       this.save()
     })
