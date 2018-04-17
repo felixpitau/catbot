@@ -225,7 +225,7 @@
     "tags": ["Vanilla"]
   }
   {
-    "prompt": "Imagine if {name} woke up to Minecraft Christmas morning. What gift would they find in their chest?",
+    "prompt": "Imagine if {name} woke up to Minecraft Christmas morning. What gift would {they} find under the spruce tree?",
     "choices": ["An enchanted book", "Potions", "A brand new sword", "64x5 blocks of dirt", "A single piece of coal", "A Woolism recruiting leaflet"],
     "tags": ["Minecraft"]
   },
