@@ -223,10 +223,65 @@
     "prompt": "Imagine if {name} were providing expert testimony at a trial. What type of expert would {they} be?",
     "choices": ["Marriage counselor", "Environmental expert", "Handwriting analyst", "Paranormal psychic", "Pet behavior specialist", "Gastrointestinal surgeon"],
     "tags": ["Vanilla"]
-  }
+  },
+  {
+    "prompt": "Imagine if {name} were a sports penatly. Which would {they} be?",
+    "choices": ["Holding", "Delay of game", "Head butting", "Too many men", "False start", "Excessive celebration"],
+    "tags": ["Vanilla"]
+  },
   {
     "prompt": "Imagine if {name} woke up to Minecraft Christmas morning. What gift would {they} find under the spruce tree?",
     "choices": ["An enchanted book", "Potions", "A brand new sword", "64x5 blocks of dirt", "A single piece of coal", "A Woolism recruiting leaflet"],
     "tags": ["Minecraft"]
   },
+  {
+    "prompt": "Imagine if {name} died in Minecraft. What would be the death message?",
+    "choices": ["{name} was slain by Zombie", "{name} drowned", "{name} hit the ground too hard", "{name} tried to swim in lava", "{name} was squashed by a falling block", "{name} hugged a cactus"],
+    "tags": ["Minecraft"]
+  },
+  { 
+    "prompt": "Imagine if {name} were a meme movie. Which would {they} be?",
+    "choices": ["Shrek", "The Bee Movie", "Frozen", "Lord of the Rings", "Willy Wonka and the Chocolate Factory", "Twilight"],
+    "tags": ["Non-Reference"]
+  },
+  {
+    "prompt": "Imagine if {name} were a Terraria boss. Which would {they} be?",
+    "choices": ["Skeletron", "Plantera", "Moon Lord", "Eye of Cthulhu", "Duke Fishron", "Santa NK-1"],
+    "tags": ["Terraria"]
+  },
+  {
+    "prompt": "Imagine if {name} were a Terraria class. Which would {they} be?",
+    "choices": ["Melee", "Magic", "Ranged", "Summon", "Thrown", "Yo-Yo"],
+    "tags": ["Terraria"]
+  },
+  {
+    "prompt": "Imagine if {name} were a Starbound weather condition. Which would {they} be?",
+    "choices": ["Clear", "Drizzle", "Sandstorms", "Luminous Rain", "Acid Thunder", "Space Junk"],
+    "tags": ["Starbound"]
+  },
+  {
+    "prompt": "Imagine if {name} were a musical instrument in Starbound. Which would {they} be?",
+    "choices": ["Saxophone", "Nylon Guitar", "Harmonica", "Music Box", "Piano", "Dual Microphones"],
+    "tags": ["Starbound"]
+  },
+  {
+    "prompt": "Imagine if {name} were a Team Fortress 2 class. Which would {they} be?",
+    "choices": ["Scout", "Heavy", "Medic", "Spy", "Pyro", "Sniper"],
+    "tags": ["TF2"]
+  },
+  {
+    "prompt": "Imagine if {name} attended the Ravenwood School of Magical Arts. Who would {their} best friend be?",
+    "choices": ["Ashley", "Lenora", "Valerian", "Digby", "Malistaire", "Ashley's Boyfriend of the Week"],
+    "tags": ["Wizard101"]
+  },
+  {
+    "prompt": "Imagine if {name} were a D&D class. Which would {they} be?",
+    "choices": ["Fighter", "Rogue", "Barbarian", "Druid", "Ranger", "Wizard"],
+    "tags": ["Tabletops"]
+  },
+  {
+    "prompt": "Imagine if {name} were a D&D alignment. Which would {they} be?",
+    "choices": ["Chaotic Evil", "Neutral Good", "Lawful Evil", "Lawful Stupid", "Apathetic Neutral", "Chaotic Stupid"],
+    "tags": ["Tabletops"]
+  }
 ]
