@@ -15,7 +15,34 @@ export default class Expressions extends Talent {
   }
 
   static nice () {
-    return this.randomized(['\*rubs his cute cat face on you\* mow :3', ':3c', '\*bumps his face into you\*', '\*purrs\*', '\*obscenely loud purrs\*', '\*walks up to you and brushes up on your leg, purring\*'])
+    return this.randomized(['\*rubs his cute cat face on you\* mow :3', ':3c', '\*bumps his face into you\*', '\*purrs\*', '\*obscenely loud purrs\*', '\*walks up to you and brushes up on your leg, purring\*', '\*looks to you and slowly blinks\*', '\*rolls onto his back to expose his belly\*'])
+  }
+
+  static weird () {
+    return this.randomized([Expressions.meow(), Expressions.nice(), Expressions.disgust(), '\*knocks over something from a shelf\*', '\*looks out the window, starts chattering\*', '\*does a big stretch and a big yawn\*', '\*wiggles\*', '\*catches his noodle tail with his mouth \*' + Expressions.meow()])
+  }
+
+  static offering (t) {
+    let thing = {
+      original: t,
+      without: {
+        det: (t.slice(0, 2) === 'a ' ? t.slice(2) : (t.slice(0, 4) === 'the ' ? t.slice(4) : (t.slice(0, 3) === 'an ' ? t.slice(3) : t)))
+      }
+    }
+    if (thing.without.det === 'banana') {
+      return Expressions.disgust()
+    }
+    if (thing.without.det === 'cucumber' || thing.without.det === 'zucchini') {
+      return this.randomized(['\*jumps high into the air and runs away\*', '<:why:282346198969483264> \*cries\*', Expressions.disgust()])
+    }
+    return this.randomized(
+      ['\*sniffs the ' + thing.without.det + '\*',
+      '\*headbumps the ' + thing.without.det + '\*',
+      Expressions.weird(),
+      '\*jumps and runs away\*',
+      '\*licks the ' + thing.without.det + '\*',
+      '\*sniffs the ' + thing.without.det + ' then headbumps it\*'
+    ])
   }
 
   onMessage (message) {
@@ -37,7 +64,18 @@ export default class Expressions extends Talent {
     this.react(/(i want|gimmi(e)?) (dat|that) (beef|meat|bease|beas)ball!/gi, '<:nobadcat:264224193900445697> no! You can\'t have it!')
     this.react(/(\*|\\\*)gives( cat[ -]bot| the cat)?( a)? treat( to (cat[ -]bot|the cat))?(\*|\\\*)/gi, Expressions.meow() + ' \\*eats up the treat\\*')
     this.react(/(\*|\\\*)flips? (a|the) coin(\*|\\\*)/gi, ['`you flip a coin. It is HEADS`', '`you flip a coin. It is TAILS`'])
-    this.react(/(\*|\\\*)pets (the cat|cat bot|(the )?good boy|(the )?good kitty|(the )?very good kitty)(\*|\\\*)/gi, ['Pur', 'Purr', 'Purrr', 'Purrrr~', 'Purrrrr', 'Purrrrrr', 'Purrrrr~!', 'Purrurururr~', 'Purrororor...', 'Purwowa', 'Squek'])
+    this.react(/(\*|\\\*)pets (the cat|cat ?bot|(the )?good boy|(the )?good kitty|(the )?very good kitty)(\*|\\\*)/gi, ['Pur', 'Purr', 'Purrr', 'Purrrr~', 'Purrrrr', 'Purrrrrr', 'Purrrrr~!', 'Purrurururr~', 'Purrororor...', 'Purwowa', 'Squek'])
+    this.react(/(\*|\\\*)(points at (cat ?bot|the cat))(\*|\\\*)/gi, Expressions.weird())
     this.react(/(🔪|🗡)/gi, ['<:knifecat:262081040292642818>', '<:suffer:262079211290886144>'])
+    let offerPat = /(\*|\\\*)(offers|gives) ([a-z\' \.\!\?]+) to (cat ?bot|the cat)(\*|\\\*)/gi
+    this.react(offerPat, () => {
+      let offerRes = offerPat.exec(message.content)
+      this.say(Expressions.offering(offerRes[3]))
+    })
+    let offerTwoPat = /(\*|\\\*)(offers|gives) (cat ?bot|the cat) ([a-z\' \.\!\?]+)(\*|\\\*)/gi
+    this.react(offerTwoPat, () => {
+      let offerRes = offerTwoPat.exec(message.content)
+      this.say(Expressions.offering(offerRes[4]))
+    })
   }
 }
