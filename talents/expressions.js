@@ -77,5 +77,11 @@ export default class Expressions extends Talent {
       let offerRes = offerTwoPat.exec(message.content)
       this.say(Expressions.offering(offerRes[4]))
     })
+    this.react(/O+H+ *N+O+ *!*/g, 'https://cdn.discordapp.com/attachments/135149561420185600/434023786489184275/OHNO.gif')
+    this.react(/O+H+ *M+Y+ *G+O+D+ *!*/g, 'https://cdn.discordapp.com/attachments/135149561420185600/431286080260669440/OHMYGOD.gif')
+    this.react(/H+O+L+Y+ *S+H+I+T+ *!*/g, 'https://cdn.discordapp.com/attachments/135149561420185600/431286339070197760/HOLYSHIT.gif')
+    this.react(/i *refuse/gi, 'https://gfycat.com/ReadyEcstaticHamadryas')
+    this.react(/act *3.*/gi, 'https://gfycat.com/LateFalseDorado')
+    this.react(/s-h-i-t/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/437719810785411094/1524430919455910.gif')
   }
 }
