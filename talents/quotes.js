@@ -10,25 +10,27 @@ export default class Quotes extends Talent {
 
   onMessage (message) {
     let m = message
-    let quotePat = /^\"(.+)\" -? ([a-z]+) ([0-9]{4})$/gi
+    let quotePat = /^\"(.+)\" ?-? ([a-z]+) ([0-9]{4})$/gi
     let quotesPath = path.join(__dirname, '..', 'mem', 'quotes.json')
     this.react(quotePat, () => {
-      if (this.isInPublic) {
-        let quotesMem = JSON.parse(fs.readFileSync(quotesPath))
-        let quoteExec = quotePat.exec(m.content)
-        quotesMem.push({
-          dateAdded: Date.now(),
-          addedByUser: m.author.id,
-          removedByUser: null,
-          dateRemoved: null,
-          quote: quoteExec[1],
-          by: quoteExec[2],
-          year: quoteExec[3]
-        })
-        fs.writeFileSync(quotesPath, JSON.stringify(quotesMem))
-        this.say('Quote has been added to the quote journal!')
-      } else {
-        this.say('You can only record quotes for the quote journal in a public channel')
+      if (!this.isFromSelf) {
+        if (this.isInPublic) {
+          let quotesMem = JSON.parse(fs.readFileSync(quotesPath))
+          let quoteExec = quotePat.exec(m.content)
+          quotesMem.push({
+            dateAdded: Date.now(),
+            addedByUser: m.author.id,
+            removedByUser: null,
+            dateRemoved: null,
+            quote: quoteExec[1],
+            by: quoteExec[2],
+            year: quoteExec[3]
+          })
+          fs.writeFileSync(quotesPath, JSON.stringify(quotesMem))
+          this.say('Quote has been added to the quote journal!')
+        } else {
+          this.say('You can only record quotes for the quote journal in a public channel')
+        }
       }
     })
     this.react(/^quote/gi, () => {

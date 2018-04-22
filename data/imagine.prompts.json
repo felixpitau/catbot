@@ -223,5 +223,20 @@
     "prompt": "Imagine if {name} were providing expert testimony at a trial. What type of expert would {they} be?",
     "choices": ["Marriage counselor", "Environmental expert", "Handwriting analyst", "Paranormal psychic", "Pet behavior specialist", "Gastrointestinal surgeon"],
     "tags": ["Vanilla"]
+  },
+  {
+    "prompt": "Imagine if {name} were to build a castle in Minecraft. What would be {their} primary building material?",
+    "choices": ["Dirt", "Diamond", "Cobblestone", "Stone Brick", "Wool", "Ice"],
+    "tags": ["Felix", "Minecraft"]
+  },
+  {
+    "prompt": "Imagine if {name} were to find a creeper by {their} storage chests in Minecraft. How would {they} react?",
+    "choices": ["Build a wall around the creeper", "Shoot at it from a distance", "Charge in with the sword", "Just leave", "Make a prayer to the Wool Gods", "Try to feed the creeper some gunpowder"],
+    "tags": ["Felix", "Minecraft"]
+  },
+  {
+    "prompt": "Imagine if {name} were to visit a Woolism temple. What would {they} bring as an offering?",
+    "choices": ["{their} favorite color wool", "A slightly used wooden hoe", "Various vegetables", "Just {themself}", "Some mutton (uncooked)", "A creeper"],
+    "tags": ["Felix", "Minecraft"]
   }
 ]
