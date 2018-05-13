@@ -225,6 +225,16 @@
     "tags": ["Vanilla"]
   },
   {
+    "prompt": "Imagine if {name} was a muffin. What kind would {they} be?",
+    "choices": ["Blueberry", "Cinnamon", "Poppyseed", "Chocolate", "Cornbread", "Banana nut"],
+    "tags": ["Vanilla"]
+  },
+  {
+    "prompt": "Imagine if {name} founded a country. What government would they form?",
+    "choices": ["Dictatorship", "Direct Democracy", "Representative Republic", "Monarchy", "Theocracy", "Anarchy"],
+    "tags": ["Vanilla"]
+  },
+  {
     "prompt": "Imagine if {name} were to build a castle in Minecraft. What would be {their} primary building material?",
     "choices": ["Dirt", "Diamond", "Cobblestone", "Stone Brick", "Wool", "Ice"],
     "tags": ["Felix", "Minecraft"]
@@ -252,6 +262,11 @@
   {
     "prompt": "Imagine if {name} died in Minecraft. What would be the death message?",
     "choices": ["{name} was slain by Zombie", "{name} drowned", "{name} hit the ground too hard", "{name} tried to swim in lava", "{name} was squashed by a falling block", "{name} hugged a cactus"],
+    "tags": ["Minecraft"]
+  },
+  {
+    "prompt": "Imagine if {name} was a Thaumcraft focus. Which focus would {they} be?",
+    "choices": ["Lightning", "Fireball", "Frost", "Portable Hole", "Nine Hells", "Pech's Curse"],
     "tags": ["Minecraft"]
   },
   {
@@ -297,6 +312,26 @@
   {
     "prompt": "Imagine if {name} were a D&D alignment. Which would {they} be?",
     "choices": ["Chaotic Evil", "Neutral Good", "Lawful Evil", "Lawful Stupid", "Apathetic Neutral", "Chaotic Stupid"],
+    "tags": ["Tabletops"]
+  },
+  {
+    "prompt": "Imagine if {name} was a member of a fantasy race. Which race would {they} be?",
+    "choices": ["Dwarf", "Elf", "Ork", "Goblin", "Treeant", "Dragon"],
+    "tags": ["Tabletops"]
+  },
+  {
+    "prompt": "Imagine if {name} had a quest to defeat a dragon. How would {they} do it?",
+    "choices": ["Rush in with a sword", "Lay a trap outside its lair", "Make friends with it", "Bribe it with gold", "Summon a larger dragon to kill it for you", "Ignore the quest and steal its treasure"],
+    "tags": ["Tabletops"]
+  },
+  {
+    "prompt": "Imagine if {name} was another D&D class. Which would {they} be?",
+    "choices": ["Monk", "Cleric", "Bard", "Shaman", "Paladin", "Warlock"],
+    "tags": ["Tabletops"]
+  },
+  {
+    "prompt": "Imagine if {name} was a wizard. What kind of spells would {they} learn?"
+    "choices": ["Evocation", "Illusion", "Necromancy", "Conjuration", "Divination", "Enchantment"],
     "tags": ["Tabletops"]
   }
 ]
