@@ -330,7 +330,7 @@
     "tags": ["Tabletops"]
   },
   {
-    "prompt": "Imagine if {name} was a wizard. What kind of spells would {they} learn?"
+    "prompt": "Imagine if {name} was a wizard. What kind of spells would {they} learn?",
     "choices": ["Evocation", "Illusion", "Necromancy", "Conjuration", "Divination", "Enchantment"],
     "tags": ["Tabletops"]
   }
