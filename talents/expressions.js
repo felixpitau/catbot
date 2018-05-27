@@ -57,6 +57,9 @@ export default class Expressions extends Talent {
       })
       this.react(/what is your favorite christmas song?/gi, '♫♪ https://www.youtube.com/watch?v=LUoDmRM2aJ0 ♫')
     })
+    if (!this.isFromSelf) {
+      this.react(/\:ohno\:/gi, 'https://68.media.tumblr.com/fdbeac84506bb34d944388bd1d46b40f/tumblr_onadogjcrX1uuyy36o1_400.gif')
+    }
     this.react(/(\:badbanana\:|🍌)/gi, Expressions.disgust())
     this.react(/C *H *A+ *O+ *S+/g, ':rocket:')
     this.react(/cat[ -]?bot,? do my (math )?homework/gi, ['I know a bit of math, ask me to calculate something', 'Try my calculate command and I will see what I can do', 'I love doing math, please let me help'])
