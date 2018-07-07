@@ -1,0 +1,55 @@
+{
+  "moves": {
+    "kick some (ass|butt)": "2d6+tough",
+    "(act )?under pressure": "2d6+cool",
+    "help( out)?": "2d6+cool",
+    "investigate( a mystery)?": "2d6+sharp",
+    "manipulate( someone)?": "2d6+charm",
+    "protect( someone)?": "2d6+tough",
+    "read a bad situation": "2d6+sharp",
+    "use magic": "2d6+weird"
+  },
+  "promoves": {
+    "chosen": {
+
+    },
+    "crooked": {
+
+    },
+    "divine": {
+
+    },
+    "expert": {
+      "i've read about this": "2d6+sharp",
+      "(preparedness|i need something (unusual|rare))": "2d6+sharp",
+      "not as bad as it looked": "2d6+cool",
+      "(precise strike|aim for a weak spot)": "2d6+tough",
+      "the (man|woman) with the plan": "2d6+sharp",
+      "dark past": "2d6+weird"
+    },
+    "flake": {
+
+    },
+    "initiate": {
+
+    },
+    "monstrous": {
+
+    },
+    "mundane": {
+
+    },
+    "professional": {
+
+    },
+    "spell-slinger": {
+
+    },
+    "spooky": {
+
+    },
+    "wronged": {
+
+    }
+  }
+}
