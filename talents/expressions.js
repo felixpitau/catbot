@@ -86,6 +86,6 @@ export default class Expressions extends Talent {
     this.react(/i *refuse/gi, 'https://gfycat.com/ReadyEcstaticHamadryas')
     this.react(/act *3.*/gi, 'https://gfycat.com/LateFalseDorado')
     this.react(/s-h-i-t/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/437719810785411094/1524430919455910.gif')
-    this.react(/\:raised_back_of_hand\:/g, '<:screaming:325097530943602709>')
+    this.react(/🤚/g, '<:screaming:325097530943602709>')
   }
 }
