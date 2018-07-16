@@ -20,6 +20,7 @@ export default class Imagine extends Talent {
     this.plays = game.plays
     this.subject = game.subject
     this.play = game.play
+    this.tags = game.tags
     return game
   }
 
@@ -31,7 +32,8 @@ export default class Imagine extends Talent {
       status: this.status,
       plays: this.plays,
       subject: this.subject,
-      play: this.play
+      play: this.play,
+      tags: this.tags
     }
     game = Object.assign(game, update)
     fs.writeFile(this.path, JSON.stringify(game), 'utf8', function (err) {
@@ -80,8 +82,12 @@ export default class Imagine extends Talent {
     this.say('A new game has been started, you can now join by using `imagineif join`')
   }
 
-  onSet () {
-    // Make changes to settings. Will fully implement later
+  onSet (set) {
+    // Make changes to settings.
+    if (set.name === 'tags') {
+      this.tags = set.value.split(/\s/g)
+      this.say('Tag preferences changed!')
+    }
   }
 
   onReady () {
@@ -100,7 +106,17 @@ export default class Imagine extends Talent {
     // Display the choices of a prompt, filter the prompt and choice texts
     if (this.status !== 'play') {
       this.status = 'play'
-      this.play = prompts[Math.floor(Math.random() * prompts.length)]
+      let hasWrongTag = true
+      do {
+        this.play = prompts[Math.floor(Math.random() * prompts.length)]
+        this.tags.forEach((t1) => {
+          this.play.tags.forEach((t2) => {
+            if (t1.toLowerCase() === t2.toLowerCase()) {
+              hasWrongTag = false
+            }
+          })
+        })
+      } while (hasWrongTag)
     }
     let filterText = (t) => {
       return this.filterText(t, this.subject.name, this.subject.pronoun)
@@ -148,23 +164,29 @@ export default class Imagine extends Talent {
       }
       let scoreText = ''
       let scoringPlayers = []
+      let hasPoints = false
       for (let i in plays) {
         if (plays[i].length === highestCount) {
           for (let j in plays[i]) {
             let player = this.player(plays[i][j])
             player.score++
+            hasPoints = true
           }
         }
       }
       for (let i in this.players) {
         let player = this.players[i]
-        scoreText += player.name + ' played ' + (player.play + 1) + '. ' + this.subject.choices[parseInt(player.play)]
+        scoreText += player.name + ' played ' + (player.play + 1) + '. ' + this.play.choices[parseInt(player.play)] + '\n'
         player.play = null
       }
-      if (scoreText === '') {
+      this.sayIn(
+        'lair',
+        '```\n' +
+        scoreText + '\n' +
+        '```'
+      )
+      if (!hasPoints) {
         this.sayIn('lair', 'Nobody gets any points this round!')
-      } else {
-        this.sayIn('lair', scoreText)
       }
       let scoreLimit = this.settings.winning
       let winnerList = []
@@ -174,10 +196,11 @@ export default class Imagine extends Talent {
           winnerList.push(player)
         }
       }
+      this.say('You chose ' + number + '. ' + this.play.choices[number - 1] + '!')
       if (winnerList.length > 0) {
-        this.sayIn('lair', 'GAME OVER!\nAnd the winner' + (winnerList.length > 1 ? 's' : '') + ' of this game ' + (winnerList.length > 1 ? 'are' : 'is') + ': ')
+        this.sayIn('lair', '***GAME OVER!***\n\nAnd the winner' + (winnerList.length > 1 ? 's' : '') + ' of this game ' + (winnerList.length > 1 ? 'are' : 'is') + ': ')
         winnerList.forEach(winner => {
-          this.sayIn('lair', '@' + winner.name)
+          this.sayIn('lair', '***' + winner.name.toUpperCase() + '***')
         })
         this.status = 'none'
         this.players = []
@@ -245,19 +268,22 @@ export default class Imagine extends Talent {
         "they": "they",
         "their": "their",
         "theirs": "theirs",
-        "them": "them"
+        "them": "them",
+        "themself": "themself"
       },
       "he": {
         "they": "he",
         "their": "his",
         "theirs": "his",
-        "them": "him"
+        "them": "him",
+        "themself": "himself"
       },
       "she": {
         "they": "she",
         "their": "her",
         "theirs": "hers",
-        "them": "her"
+        "them": "her",
+        "themself": "herself"
       }
     }
     for (let p in re[pronoun]) {
@@ -332,10 +358,14 @@ export default class Imagine extends Talent {
 
     if (this.isInGame(id)) {
       react(/^play ([1-6])$/gi, () => {
+        this.load()
         playRes((/^play ([1-6])$/gi).exec(m.content)[1])
+        this.save()
       })
       react(/^choose ([1-6])$/gi, () => {
+        this.load()
         chooseRes((/^choose ([1-6])$/gi).exec(m.content)[1])
+        this.save()
       })
     }
 
@@ -354,6 +384,12 @@ export default class Imagine extends Talent {
         if (this.status === 'play' || this.status === 'choose') {
           this.onReady()
         }
+      })
+      react(/^imagineif set/gi, () => {
+        let setPat = /^imagineif set (tags) (.+)/gi
+        let setting = setPat.exec(m.content)
+        // console.log(setting)
+        this.onSet({name: setting[1], value: setting[2]})
       })
       react(/^imagineif start/gi, () => {
         react(/^imagineif start\!$/gi, () => {

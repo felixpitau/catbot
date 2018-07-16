@@ -67,3 +67,5 @@ mem
 login
 
 *.old.js
+
+fix_repo.sh

@@ -27,6 +27,10 @@ export default class Calculate extends Talent {
     return text
   }
 
+  calculate (text) {
+    return parser.eval(this.parseDice(text))
+  }
+
   onMessage (message) {
     if (!this.isFromSelf) {
       if (message.content.match(/^(calculate|calc|roll) (.+)/gi) !== null) {
@@ -35,7 +39,7 @@ export default class Calculate extends Talent {
         let calcArr = calcPat.exec(message.content)
         let parsable = calcArr[2]
         let rollArr = rollPat.exec(parsable)
-        message.channel.send('📊 ' + parser.eval(this.parseDice(parsable)))
+        message.channel.send('📊 ' + this.calculate(parsable))
       }
     }
   }
