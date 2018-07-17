@@ -86,6 +86,16 @@ export default class Expressions extends Talent {
     this.react(/i *refuse/gi, 'https://gfycat.com/ReadyEcstaticHamadryas')
     this.react(/act *3.*/gi, 'https://gfycat.com/LateFalseDorado')
     this.react(/s-h-i-t/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/437719810785411094/1524430919455910.gif')
+	this.react(/AAAAA+/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468560120541085697/MQFeTXV.jpg')
+	this.react(/Y+E+S+!+ *(Y+E+S+!+)*/g, 'https://cdn.discordapp.com/attachments/362059928292294660/468561440286965791/Qgl3Q2K.gif')
+	this.react(/N+O+!+ *(N+O+!+)*/g, 'https://thumbs.gfycat.com/MerryHeftyGavial-size_restricted.gif')
+	this.react(/eat *shit!*/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468561766088179713/Eat_Shit.png')
+	this.react(/that'?s *bullshit/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468565634142437386/5ca.jpg')
+	this.react(/duwang/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468566055900676096/duwang_1.jpg')
+	this.react(/it was me/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468567076986945536/566.gif')
+	this.react(/w+r+y+!*/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468567308139233282/wry.gif')
+	this.react(/D+I+O+!*/g, this.randomized(['https://cdn.discordapp.com/attachments/362059928292294660/468568193464664103/DioBPflww.png', 'https://cdn.discordapp.com/attachments/362059928292294660/468568723175899138/16d1efc40b9daa76cda63e70d8bbf90cac6e3f30_00.jpg', 'https://cdn.discordapp.com/attachments/362059928292294660/468568738703081476/DioP2.png', 'https://cdn.discordapp.com/attachments/362059928292294660/468568932249370636/download.jpg', 'https://cdn.discordapp.com/attachments/362059928292294660/468568946946211840/tenor.gif', 'https://cdn.discordapp.com/attachments/362059928292294660/468568956060434442/images.jpg', 'https://cdn.discordapp.com/attachments/362059928292294660/468567076986945536/566.gif', 'https://cdn.discordapp.com/attachments/362059928292294660/468567308139233282/wry.gif', 'https://cdn.discordapp.com/attachments/362059928292294660/468570220630376469/DOrFwp.gif']))
+	this.react(/(THE +WO+RLD!*)|(ZA +WA+RUDO!*)/g, 'https://cdn.discordapp.com/attachments/362059928292294660/468570220630376469/DOrFwp.gif')
     this.react(/🤚/g, '<:screaming:325097530943602709>')
   }
 }
