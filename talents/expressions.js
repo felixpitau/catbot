@@ -80,6 +80,7 @@ export default class Expressions extends Talent {
       let offerRes = offerTwoPat.exec(message.content)
       this.say(Expressions.offering(offerRes[4]))
     })
+    this.react(/jojo +reference/gi, 'Hey I know some jojokes, try me')
     this.react(/O+H+ *N+O+ *!*/g, 'https://cdn.discordapp.com/attachments/135149561420185600/434023786489184275/OHNO.gif')
     this.react(/O+H+ *M+Y+ *G+O+D+ *!*/g, 'https://cdn.discordapp.com/attachments/135149561420185600/431286080260669440/OHMYGOD.gif')
     this.react(/H+O+L+Y+ *S+H+I+T+ *!*/g, 'https://cdn.discordapp.com/attachments/135149561420185600/431286339070197760/HOLYSHIT.gif')
@@ -108,9 +109,13 @@ export default class Expressions extends Talent {
 	this.react(/eme(l|r)a(l|r)u?do? *su?pu?(l|r)ashu?!*/gi, 'https://vignette.wikia.nocookie.net/powerlisting/images/8/81/Hierophant_Green%27s_Emerald_Splash%21%21%21%21_JoJo.gif/revision/latest?cb=20180412154853')
 	this.react(/true +man'?s +world/gi, 'https://i.kym-cdn.com/photos/images/original/000/815/300/f43.png')
 	this.react(/(2 +)?(3 +)?5 +7 +11 +13( +17)?( +19)?/gi, 'https://78.media.tumblr.com/095a67c7b01851202bbf6108b1ae9cd8/tumblr_inline_nukuk76fmh1s34r9q_500.png')
-	this.react(/rhinoceros +beetle/gi, 'https://vignette.wikia.nocookie.net/jjba/images/c/ce/DIOs_Dairy.png/revision/latest?cb=20151010064746')
 	this.react(/spiral staircase(,|.+)? +rhinoceros beetle(,|.+)? +desolation row(,|.+)? +fig tart(,|.+)? +rhinoceros beetle(,|.+)? +via dolorosa(,|.+)? +rhinoceros beetle(,|.+)? +singularity point(,|.+)? +giotto(,|.+)? +angel(,|.+)? +hydrangea(,|.+)? +rhinoceros beetle(,|.+)? +singularity point(,|.+)? +secret emperor/gi, 'https://i.pinimg.com/originals/2d/f4/09/2df409fbec17b9896fe2d2b270c1c139.jpg')
+	this.react(/rhinoceros +beetle/gi, 'https://vignette.wikia.nocookie.net/jjba/images/c/ce/DIOs_Dairy.png/revision/latest?cb=20151010064746')
 	this.react(/(bites +the +dust!*)|(baitsa +dusto!*)/gi, 'https://ih0.redbubble.net/image.372127140.8453/flat,550x550,075,f.u1.jpg')
+	this.react(/ki((ll)|r)(a+|(er)) +((quee+n)|(ku+i+n))!+/gi, 'https://vignette.wikia.nocookie.net/jjba/images/3/39/Killer_queen_c345.png/revision/latest/scale-to-width-down/350?cb=20160325163154')
+	this.react(/quality +queen/gi, 'https://coubsecure-s.akamaihd.net/get/b111/p/coub/simple/cw_timeline_pic/7c339608766/3d7ac7bd6a02034b76e2b/big_1477322464_image.jpg')
+	this.react(/(bad|dumb|stupid|terrible|awful|horrible|ugly|ridiculous|dated) +hair/gi, 'https://i.kym-cdn.com/photos/images/newsfeed/001/100/193/ed0.gif')
+	this.react(/((spice +girl)|(w+aa+n+a+b+ee+))/gi, 'https://pm1.narvii.com/6420/9ce8e1a95ee7c5e1cb04eaf1f42d700c638d098d_hq.jpg')
     this.react(/🤚/g, '<:screaming:325097530943602709>')
   }
 }
