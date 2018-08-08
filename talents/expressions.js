@@ -86,7 +86,7 @@ export default class Expressions extends Talent {
     this.react(/i *refuse/gi, 'https://gfycat.com/ReadyEcstaticHamadryas')
     this.react(/act *3.*/gi, 'https://gfycat.com/LateFalseDorado')
     this.react(/s-h-i-t/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/437719810785411094/1524430919455910.gif')
-	this.react(/AAAAA+/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468560120541085697/MQFeTXV.jpg')
+	this.react(/AAAAAAA+/g, 'https://cdn.discordapp.com/attachments/362059928292294660/468560120541085697/MQFeTXV.jpg')
 	this.react(/Y+E+S+!+( *Y+E+S+!+)*/g, 'https://cdn.discordapp.com/attachments/362059928292294660/468561440286965791/Qgl3Q2K.gif')
 	this.react(/N+O+!+( *N+O+!+)*/g, 'https://thumbs.gfycat.com/MerryHeftyGavial-size_restricted.gif')
 	this.react(/eat *shit!*/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468561766088179713/Eat_Shit.png')
@@ -101,6 +101,12 @@ export default class Expressions extends Talent {
 	this.react(/muda!*( *muda!*)+/gi, 'https://78.media.tumblr.com/96f94d4dd2d9c0ecdcdce22ba9eec664/tumblr_inline_orav20Vs1H1s8a2ua_540.png')
 	this.react(/yare *yare( *daze).*/gi, 'https://thumbs.gfycat.com/ImaginaryDeadGlobefish-size_restricted.gif')
 	this.react(/nyo!*( *ho!*)+/gi, 'https://thumbs.gfycat.com/ImaginaryDeadGlobefish-size_restricted.gif')
+	this.react(/ari!*( *ari!*)+/gi, 'https://i.ytimg.com/vi/QCFu_6NeWDk/hqdefault.jpg')
+	this.react(/arrivederci!*/gi, 'https://pm1.narvii.com/5973/b8abff913124a489b3b4c8b13c2f4cacb542302c_hq.jpg')
+	this.react(/vola!*( *vola!*)+/gi, 'https://scontent-frt3-2.cdninstagram.com/vp/d83c6b2db1cab0b8a968dbab88a8b266/5BE5738C/t51.2885-15/sh0.08/e35/s640x640/36159609_1888650664488380_410052364678987776_n.jpg')
+	this.react(/pass!* *pass!*( *pass!*)+/gi, 'https://vignette.wikia.nocookie.net/jjba/images/c/ca/SexPistols_ASB.jpg')
+	this.react(/eme(l|r)a(l|r)u?do? *su?pu?(l|r)ashu?!*/gi, 'https://vignette.wikia.nocookie.net/powerlisting/images/8/81/Hierophant_Green%27s_Emerald_Splash%21%21%21%21_JoJo.gif/revision/latest?cb=20180412154853')
+	this.react(/true +man'?s +world/gi, 'https://i.kym-cdn.com/photos/images/original/000/815/300/f43.png')
     this.react(/🤚/g, '<:screaming:325097530943602709>')
   }
 }
