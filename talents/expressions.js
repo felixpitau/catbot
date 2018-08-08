@@ -91,7 +91,7 @@ export default class Expressions extends Talent {
 	this.react(/N+O+!+( *N+O+!+)*/g, 'https://thumbs.gfycat.com/MerryHeftyGavial-size_restricted.gif')
 	this.react(/eat *shit!*/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468561766088179713/Eat_Shit.png')
 	this.react(/that'?s *bullshit/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468565634142437386/5ca.jpg')
-	this.react(/duwang/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468566055900676096/duwang_1.jpg')
+	this.react(/duwang/gi, ['https://cdn.discordapp.com/attachments/362059928292294660/468566055900676096/duwang_1.jpg', 'https://pm1.narvii.com/6306/5dc63d4923a6b930cc280c63dbfe44eca9250393_hq.jpg', 'https://ih1.redbubble.net/image.327986055.5857/flat,750x1000,075,t.jpg', 'https://i.kym-cdn.com/photos/images/original/000/983/141/2d1.png', 'https://i.kym-cdn.com/photos/images/original/001/091/425/661.png', 'https://i.kym-cdn.com/photos/images/facebook/000/985/695/92b.png', 'https://res.cloudinary.com/teepublic/image/private/s--QwEY1Q22--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1464576173/production/designs/527841_1.jpg', 'https://i.imgur.com/0kEJm56.jpg', 'https://i.kym-cdn.com/photos/images/newsfeed/001/138/926/eea.jpg'])
 	this.react(/it was me/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468567076986945536/566.gif')
 	this.react(/w+r+y+!*/gi, 'https://cdn.discordapp.com/attachments/362059928292294660/468567308139233282/wry.gif')
 	this.react(/D+I+O+!*/g, ['https://cdn.discordapp.com/attachments/362059928292294660/468568193464664103/DioBPflww.png', 'https://cdn.discordapp.com/attachments/362059928292294660/468568723175899138/16d1efc40b9daa76cda63e70d8bbf90cac6e3f30_00.jpg', 'https://cdn.discordapp.com/attachments/362059928292294660/468568738703081476/DioP2.png', 'https://cdn.discordapp.com/attachments/362059928292294660/468568932249370636/download.jpg', 'https://cdn.discordapp.com/attachments/362059928292294660/468568946946211840/tenor.gif', 'https://cdn.discordapp.com/attachments/362059928292294660/468568956060434442/images.jpg', 'https://cdn.discordapp.com/attachments/362059928292294660/468567076986945536/566.gif', 'https://cdn.discordapp.com/attachments/362059928292294660/468567308139233282/wry.gif', 'https://cdn.discordapp.com/attachments/362059928292294660/468570220630376469/DOrFwp.gif'])
@@ -110,6 +110,7 @@ export default class Expressions extends Talent {
 	this.react(/(2 +)?(3 +)?5 +7 +11 +13( +17)?( +19)?/gi, 'https://78.media.tumblr.com/095a67c7b01851202bbf6108b1ae9cd8/tumblr_inline_nukuk76fmh1s34r9q_500.png')
 	this.react(/rhinoceros +beetle/gi, 'https://vignette.wikia.nocookie.net/jjba/images/c/ce/DIOs_Dairy.png/revision/latest?cb=20151010064746')
 	this.react(/spiral staircase(,|.+)? +rhinoceros beetle(,|.+)? +desolation row(,|.+)? +fig tart(,|.+)? +rhinoceros beetle(,|.+)? +via dolorosa(,|.+)? +rhinoceros beetle(,|.+)? +singularity point(,|.+)? +giotto(,|.+)? +angel(,|.+)? +hydrangea(,|.+)? +rhinoceros beetle(,|.+)? +singularity point(,|.+)? +secret emperor/gi, 'https://i.pinimg.com/originals/2d/f4/09/2df409fbec17b9896fe2d2b270c1c139.jpg')
+	this.react(/(bites +the +dust!*)|(baitsa +dusto!*)/gi, 'https://ih0.redbubble.net/image.372127140.8453/flat,550x550,075,f.u1.jpg')
     this.react(/🤚/g, '<:screaming:325097530943602709>')
   }
 }
