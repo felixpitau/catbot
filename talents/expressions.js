@@ -107,6 +107,9 @@ export default class Expressions extends Talent {
 	this.react(/pass!* *pass!*( *pass!*)+/gi, 'https://vignette.wikia.nocookie.net/jjba/images/c/ca/SexPistols_ASB.jpg')
 	this.react(/eme(l|r)a(l|r)u?do? *su?pu?(l|r)ashu?!*/gi, 'https://vignette.wikia.nocookie.net/powerlisting/images/8/81/Hierophant_Green%27s_Emerald_Splash%21%21%21%21_JoJo.gif/revision/latest?cb=20180412154853')
 	this.react(/true +man'?s +world/gi, 'https://i.kym-cdn.com/photos/images/original/000/815/300/f43.png')
+	this.react(/(2 +)?(3 +)?5 +7 +11 +13( +17)?( +19)?/gi, 'https://78.media.tumblr.com/095a67c7b01851202bbf6108b1ae9cd8/tumblr_inline_nukuk76fmh1s34r9q_500.png')
+	this.react(/rhinoceros +beetle/gi, 'https://vignette.wikia.nocookie.net/jjba/images/c/ce/DIOs_Dairy.png/revision/latest?cb=20151010064746')
+	this.react(/spiral staircase(,|.+)? +rhinoceros beetle(,|.+)? +desolation row(,|.+)? +fig tart(,|.+)? +rhinoceros beetle(,|.+)? +via dolorosa(,|.+)? +rhinoceros beetle(,|.+)? +singularity point(,|.+)? +giotto(,|.+)? +angel(,|.+)? +hydrangea(,|.+)? +rhinoceros beetle(,|.+)? +singularity point(,|.+)? +secret emperor/gi, 'https://i.pinimg.com/originals/2d/f4/09/2df409fbec17b9896fe2d2b270c1c139.jpg')
     this.react(/🤚/g, '<:screaming:325097530943602709>')
   }
 }
