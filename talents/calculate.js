@@ -33,12 +33,16 @@ export default class Calculate extends Talent {
 
   onMessage (message) {
     if (!this.isFromSelf) {
-      if (message.content.match(/^(calculate|calc|roll) (.+)/gi) !== null) {
+      let content = message.content
+      if (content.match(/^(roll\+)(.+)/gi !== null) {
+          content = 'roll 2d6+' + (/^(roll\+)(.+)/gi).exec(content)[2]
+      }
+      if (content.match(/^(calculate|calc|roll) (.+)/gi) !== null) {
         let data = this.loadMemory('calculate')
         let scope = data[message.author.id]
         let calcPat = /^(calculate|calc|roll) (.+)/gi
         let rollPat = /(\d*d\d+)/gi
-        let calcArr = calcPat.exec(message.content)
+        let calcArr = calcPat.exec(content)
         let parsable = calcArr[2]
         let rollArr = rollPat.exec(parsable)
         let result = 'error'
@@ -49,7 +53,7 @@ export default class Calculate extends Talent {
           result = error
         }
         this.saveMemory('calculate', data)
-        let isRoll = (/^(roll)/gi).exec(message.content) !== null
+        let isRoll = (/^(roll)/gi).exec(content) !== null
         message.reply((isRoll ? '🎲 ' : '📊 ') + result)
       }
     }
