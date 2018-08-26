@@ -49,7 +49,7 @@ export default class Calculate extends Talent {
           result = error
         }
         this.saveMemory('calculate', data)
-        let isRoll = (/^(roll)/gi).exec(message.content).length > 0
+        let isRoll = (/^(roll)/gi).exec(message.content) !== null
         message.reply((isRoll ? '🎲 ' : '📊 ') + result)
       }
     }
