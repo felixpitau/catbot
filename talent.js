@@ -1,6 +1,8 @@
 import id from './mem/id'
 import settings from './mem/settings'
 import { client } from './catbot'
+import fs from 'fs'
+import path from 'path'
 
 export default class Talent {
   constructor (name) {
@@ -75,6 +77,23 @@ export default class Talent {
     } else if (text instanceof Array) {
       client.channels.find('id', id.channel[channelID]).send(text[Math.floor(Math.random() * text.length)])
     }
+  }
+
+  loadMemory (mem) {
+    let memPath = path.join(__dirname, '.', 'mem', mem + '.json')
+    let data = JSON.parse(fs.readFileSync(memPath))
+    return data
+  }
+
+  saveMemory (mem, data, update = {}) {
+    let memPath = path.join(__dirname, '.', 'mem', mem + '.json')
+    data = Object.assign(data, update)
+    fs.writeFile(memPath, JSON.stringify(data), 'utf8', function (err) {
+      if (err) {
+        this.message.channel.send('Oops! Something went wrong! D:')
+        return console.log(err);
+      }
+    });
   }
 
   _beforeOnMessage (message) {

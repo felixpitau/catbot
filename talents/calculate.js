@@ -27,19 +27,29 @@ export default class Calculate extends Talent {
     return text
   }
 
-  calculate (text) {
-    return parser.eval(this.parseDice(text))
+  calculate (text, scope) {
+    return parser.eval(this.parseDice(text), scope)
   }
 
   onMessage (message) {
     if (!this.isFromSelf) {
       if (message.content.match(/^(calculate|calc|roll) (.+)/gi) !== null) {
+        let data = this.loadMemory('calculate')
+        let scope = data[message.author.id]
         let calcPat = /^(calculate|calc|roll) (.+)/gi
         let rollPat = /(\d*d\d+)/gi
         let calcArr = calcPat.exec(message.content)
         let parsable = calcArr[2]
         let rollArr = rollPat.exec(parsable)
-        message.channel.send('📊 ' + this.calculate(parsable))
+        let result = 'error'
+        try {
+          result = math.eval(this.parseDice(parsable), scope)
+        }
+        catch (error) {
+          result = error
+        }
+        message.channel.send('📊 ' + result)
+        this.saveMemory('calculate', data)
       }
     }
   }

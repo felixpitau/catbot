@@ -4,6 +4,7 @@ import MagicConch from './talents/magicconch'
 import Quotes from './talents/quotes'
 import Imagine from './talents/imagine'
 import Rhyme from './talents/rhyme'
+import Tt from './talents/tt'
 
 export default [
   new Calculate('calculate'),
@@ -11,5 +12,6 @@ export default [
   new MagicConch('magicconch'),
   new Quotes('quotes'),
   new Imagine('imagine'),
-  new Rhyme('rhyme')
+  new Rhyme('rhyme'),
+  new Tt('tt'),
 ]

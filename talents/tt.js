@@ -1,45 +1,46 @@
 import Talent from '../talent'
 import Calculate from './calculate'
+import moves from '../data/tt.moves.json'
 
-export default class Motw extends Talent {
+const calc = new Calculate('calculate')
 
-  get path () {
-    return path.join(__dirname, '..', 'mem', 'tt.json')
-  }
-
-  load () {
-    let data = JSON.parse(fs.readFileSync(this.path))
-    this.data = data
-    return data
-  }
-
-  save (update = {}) {
-    let data = this.data
-    data = Object.assign(data, update)
-    fs.writeFile(this.path, JSON.stringify(data), 'utf8', function (err) {
-      if (err) {
-        this.message.channel.send('Oops! Something went wrong! D:')
-        return console.log(err);
-      }
-    });
-  }
+export default class Tt extends Talent {
 
   onMessage (message) {
-    this.react(/$tt/gi, () => {
-      this.react(/$tt character/gi, () => {
-        this.react(/$tt character help^/gi, 'usage: `motw character (create|moves|remove|switch to) [help]`')
-
-        this.react(/$tt character create/gi, () => {
-          this.react(/$tt character create help^/gi, 'usage: `motw character create <full name> the <profession>`')
-          this.react(/$tt character create (.+) the (.+)^/gi, () => {
-            this.data[]
+    this.react(/^tt/gi, () => {
+      let data = this.loadMemory('tt')
+      this.react(/^tt help$/gi, 'usage: `tt (profession) [help]`')
+      this.react(/^tt profession/gi, () => {
+        this.react(/^tt profession help$/gi, 'usage: `tt profession [ <current profession> | help ]`', () => {
+          this.react(/^tt profession (.+)$/gi, () => {
+            let profPat = /^tt profession (.+)$/gi
+            let profession = profPat.exec(message.content)[1]
+            if (typeof moves.promoves[profession] === 'object') {
+              data[message.author.id].profession = profession
+            }
           })
         })
+        this.react(/^tt profession$/gi, 'Your profession is: ' + data[message.author.id].profession)
       })
     })
-    this.react(/$> (.+)/gi, () => {
-      
-      //Calculate.calculate()
+    this.react(/^> (.+)/gi, () => {
+      let data = this.loadMemory('calculate')
+      let scope = data[message.author.id]
+      for (let i in moves.basic) {
+        let move = moves.basic[i]
+        let movePat = new RegExp(i, 'gi')
+        this.react(movePat, () => {
+          if (typeof move.roll === 'string') {
+            try {
+              this.say('🎲 ' + calc.calculate(move.roll, scope))
+            }
+            catch (error) {
+              this.say('🎲 ' + error)
+            }
+            this.say('```md\n' + move.description + '\n```')
+          }
+        })
+      }
     })
   }
 

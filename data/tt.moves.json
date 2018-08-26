@@ -1,15 +1,39 @@
 {
-  "moves": {
-    "kick some (ass|butt)": "2d6+tough",
-    "(act )?under pressure": "2d6+cool",
-    "help( out)?": "2d6+cool",
-    "investigate( a mystery)?": "2d6+sharp",
-    "manipulate( someone)?": "2d6+charm",
-    "protect( someone)?": "2d6+tough",
-    "read a bad situation": "2d6+sharp",
-    "use magic": "2d6+weird"
+  "basic": {
+    "kick some (ass|butt)": {
+      "roll": "2d6+tough",
+      "description": "When you get into a fight and kick some ass, *roll +Tough.\n *On a 7+*, you and whatever you're fighting inflict harm on each other.\n *On a 10+*, choose one extra effect:\n * You gain the advantage: take +1 forward, or give +1 forward to another hunter\n * You inflict terrible harm (+1 harm)\n * You suffer less harm (-1 harm)\n You force them where you want them.\n *On a 12+* instead pick an enhanced effect:\n * You completely hold the advantage. All hunters involved in the fight get +1 forward.\n * You suffer no harm at all\n * Your attack inflicts double the normal harm.\n * Your attack drives the enemy away in a rout."
+    },
+    "(act )?under pressure": {
+      "roll": "2d6+cool",
+      "description": ""
+    },
+    "help( out)?": {
+      "roll": "2d6+cool",
+      "description": ""
+    },
+    "investigate( a mystery)?": {
+      "roll": "2d6+sharp",
+      "description": ""
+    },
+    "manipulate( someone)?": {
+      "roll": "2d6+charm",
+      "description": ""
+    },
+    "protect( someone)?": {
+      "roll": "2d6+tough",
+      "description": ""
+    },
+    "read a bad situation": {
+      "roll": "2d6+sharp",
+      "description": ""
+    },
+    "use magic": {
+      "roll": "2d6+weird",
+      "description": ""
+    }
   },
-  "promoves": {
+  "professional": {
     "chosen": {
 
     },
@@ -20,12 +44,30 @@
 
     },
     "expert": {
-      "i've read about this": "2d6+sharp",
-      "(preparedness|i need something (unusual|rare))": "2d6+sharp",
-      "not as bad as it looked": "2d6+cool",
-      "(precise strike|aim for a weak spot)": "2d6+tough",
-      "the (man|woman) with the plan": "2d6+sharp",
-      "dark past": "2d6+weird"
+      "i've read about this": {
+        "roll": "2d6+sharp",
+        "description": ""
+      },
+      "(preparedness|i need something (unusual|rare))": {
+        "roll": "2d6+sharp",
+        "description": ""
+      },
+      "not as bad as it looked": {
+        "roll": "2d6+cool",
+        "description": ""
+      },
+      "(precise strike|aim for a weak spot)": {
+        "roll": "2d6+tough",
+        "description": ""
+      },
+      "the (man|woman) with the plan": {
+        "roll": "2d6+sharp",
+        "description": ""
+      },
+      "dark past": {
+        "roll": "2d6+weird",
+        "description": ""
+      }
     },
     "flake": {
 
