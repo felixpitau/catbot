@@ -34,7 +34,7 @@ export default class Calculate extends Talent {
   onMessage (message) {
     if (!this.isFromSelf) {
       let content = message.content
-      if (content.match(/^(roll\+)(.+)/gi !== null) {
+      if (content.match(/^(roll\+)(.+)/gi) !== null) {
           content = 'roll 2d6+' + (/^(roll\+)(.+)/gi).exec(content)[2]
       }
       if (content.match(/^(calculate|calc|roll) (.+)/gi) !== null) {
