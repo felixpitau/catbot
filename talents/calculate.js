@@ -39,7 +39,8 @@ export default class Calculate extends Talent {
         let calcArr = calcPat.exec(message.content)
         let parsable = calcArr[2]
         let rollArr = rollPat.exec(parsable)
-        message.channel.send('📊 ' + this.calculate(parsable))
+        let isRoll = (/^(roll)/gi).exec(message.content).length > 0
+        message.reply((isRoll ? '🎲 ' : '📊 ') + this.calculate(parsable))
       }
     }
   }
