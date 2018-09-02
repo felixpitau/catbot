@@ -119,5 +119,6 @@ export default class Expressions extends Talent {
 	this.react(/hell +2 +(yo)?u!*/gi, 'https://i.ytimg.com/vi/hS3nur6o6ME/maxresdefault.jpg')
 	this.react(/yes,? +i +am!+/gi, 'https://thumbs.gfycat.com/LimpingWhichHarpyeagle-size_restricted.gif')
     this.react(/🤚/g, '<:screaming:325097530943602709>')
+    this.react(/cat bot, play russian roulette/gi, ['*click*', '*click click*', '*meow*', '*click meow*', '***click***', '***BANG***'])
   }
 }
